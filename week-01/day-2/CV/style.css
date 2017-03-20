@@ -1,0 +1,74 @@
+* {
+  color: #222;
+
+}
+
+div {
+  background-image: url(anakin.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 60%;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10%;
+}
+
+h1, h2 {
+  margin-left: 20%;
+  font-family: 'Abril Fatface', cursive;
+}
+
+h2 {
+  height: 5px;
+  font-size: 20px;
+  font-weight: 100;
+  padding-top: 20%;
+}
+
+article {
+  padding-left: 12%;
+  padding-right: 12%;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+p {
+  text-align: left;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+}
+
+li {
+  font-size: 11px;
+  font-family: 'Josefin Sans', sans-serif;
+  list-style: square;
+}
+
+q {
+  background: rgb(68, 68, 68);
+  color: white;
+  width: 500px;
+  height: 50px;
+  font-size: 25px;
+  font-family: 'Abril Fatface', cursive;
+  display: block;
+  padding: 5% 1%;
+  padding-right: -2%;
+  margin-left: -5%;
+  margin-right: -5%;
+}
+
+q:before {
+  content:'\201c';
+  vertical-align: top;
+  line-height: 30%;
+  font-size: 65px;
+  position: relative;
+  left: -5px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  font-weight: bold;
+}

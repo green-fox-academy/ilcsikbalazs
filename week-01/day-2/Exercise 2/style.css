@@ -1,0 +1,33 @@
+p {
+  text-align: center;
+  margin: 0;
+  font-size: 36px;
+  color: white;
+  height: 128px;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+
+section {
+  border: solid;
+  border-color: rgb(66, 133, 244);
+  border-width: 17px;
+  width: 350px;
+}
+
+.north {
+  background: rgb(230, 118, 118);7
+}
+
+.east {
+  background: rgb(242, 240, 98);
+}
+
+.south {
+  background: rgb(169, 230, 230);
+}
+
+.west {
+  background: rgb(118, 146, 228);
+}

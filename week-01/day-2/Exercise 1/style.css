@@ -1,0 +1,16 @@
+p {
+  font-size: 36px;
+  padding-top: 26px;
+  padding-left: 15px;
+  color: rgb(0, 85, 102);
+  background: rgb(14, 145, 161);
+  margin: 0;
+  height: 134px;
+  box-sizing: border-box;
+  border: solid;
+  border-color: rgb(125, 206, 148);
+  border-width: 5px;
+  margin-bottom: 4px;
+  background-color: rgb(14), 145, 161);
+  width: 300px;
+}

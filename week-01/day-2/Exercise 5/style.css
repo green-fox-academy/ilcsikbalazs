@@ -1,0 +1,35 @@
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: gold;
+}
+
+p {
+  max-width: 300px;
+}
+
+ul {
+  color: blue;
+  list-style: square;
+
+}
+
+ol {
+  color: black;
+}
+
+.fruits {
+  color: black;
+  list-style: disc;
+}
+
+#apple {
+  color: red;
+}
+
+div {
+  padding-left: 50px;
+  min-width: 200px;
+}

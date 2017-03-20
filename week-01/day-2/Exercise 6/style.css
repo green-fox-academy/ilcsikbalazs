@@ -1,0 +1,10 @@
+p {
+  padding-left: 3%;
+  width: 300px;
+  border-left: solid medium;
+  font-size: 18px;
+}
+
+div {
+  padding-left: 12%;
+}
