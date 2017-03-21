@@ -11,7 +11,5 @@
 
 number = int(input("Give me a number: "))
 number += 1
-for i in range(1, number):
-    if(int((number - i)/2)%2 == 0):
-        number == 0
+for i in range(1, number, 2):
     print(int((number - i)/2)*" ", i * "*")
