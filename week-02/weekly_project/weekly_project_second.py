@@ -17,6 +17,8 @@ def palindrome_searcher(input_strings):
                 output.append(string_forward)
     return output
 
+default_strings = 'dog goat dad duck doodle never'
+
 want_to_input = str(input("Want to give me a string (yes or no)? "))
 if want_to_input == "yes":
     input_a_str = str(input("Input a string: "))
@@ -24,7 +26,6 @@ if want_to_input == "yes":
 else:
     print("You didn't want to input anything so we will use the default string")
 
-default_strings = 'dog goat dad duck doodle never'
 
 stringer = palindrome_searcher(default_strings)
 print("This was the input: ",default_strings)
