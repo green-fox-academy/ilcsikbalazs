@@ -5,14 +5,12 @@
 
 
 all_strings = 'dog goat dad duck doodle never'
-# for i in range(len(all_strings)):
-#     all_strings = all_strings.replace(" ","")
-# #doggoatdadduckdoodlenever
+
 def palindrome_searcher(put_strings_here):
     output=[]
     for x in range(3,6):
         for i in range(len(put_strings_here)):
-            string = all_strings[i-x:i]
+            string = put_strings_here[i:i+x]
             backwards = ""
             for j in range(len(string), 0, -1):
                 backwards += string[j-1]
@@ -21,20 +19,5 @@ def palindrome_searcher(put_strings_here):
     return output
 
 
-stringer = palindrome_searcher('dog goat dad duck doodle never')
+stringer = palindrome_searcher('all_strings')
 print(stringer)
-# for i in range(len(all_strings)):
-#     string = all_strings[i-4:i]
-#     backwards = ""
-#     for j in range(len(string), 0, -1):
-#         backwards += string[j-1]
-#     if(string == backwards):
-#         print(string)
-#
-# for i in range(len(all_strings)):
-#     string = all_strings[i-5:i]
-#     backwards = ""
-#     for j in range(len(string), 0, -1):
-#         backwards += string[j-1]
-#     if(string == backwards):
-#         print(string)
