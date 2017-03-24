@@ -8,12 +8,12 @@
 def palindrome_searcher(input_strings):
     output=[]
     for lenght_of_string in range(3,len(input_strings)+1):
-        for i in range(len(input_strings)):
+        for i in range(len(input_strings)-lenght_of_string+1):
             string_forward = input_strings[i:i+lenght_of_string]
             backwards = ""
             for j in range(len(string_forward), 0, -1):
                 backwards += string_forward[j-1]
-            if(string_forward == backwards and len(string_forward) == lenght_of_string):
+            if(string_forward == backwards):
                 output.append(string_forward)
     return output
 
