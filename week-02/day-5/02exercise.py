@@ -8,33 +8,44 @@
 #
 # 15
 # Congratulations. You won!
-
-
 import random
-lives = 5
+
+print("This is a guess the number betwen 0 and 100 game!")
+settings = str(input("Choose difficulty between: hard, medium, low: "))
+if(settings == "hard"):
+    lives = 5
+
+elif(settings == "medium"):
+    lives = 10
+
+elif(settings == "low"):
+    lives = 15
+
 number = random.randint(1,100)
+print("You have",lives, "lives!")
 guess = int(input("Guess a number: "))
 not_found = True
 
 
 while not_found:
     if number == guess:
-        print("yeaaah")
+        print("Yeaaah you won!!!")
         not_found = False
     elif number > guess:
         print("Your gues is: ", guess)
         print("Too low")
         lives -= 1
-        print("You live(s) left: ", lives)
+        print("You live(s) left: ", lives,"\n")
         guess = int(input("Guess a number: "))
 
     elif number < guess:
         print("Your gues is: ", guess)
         print("Too high")
         lives -= 1
-        print("You live(s) left: ", lives)
+        print("You live(s) left: ", lives,"\n")
         guess = int(input("Guess a number: "))
 
     if lives == 0:
         print("You lose")
+        print("The number was: ",number)
         break
