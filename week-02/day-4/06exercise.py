@@ -16,8 +16,19 @@ hashmap = [
     {3: "say goodbye"}
 ]
 
-print(hashmap[])
-# if (hashmap.index())
+#these are the only valid hashmaps
+# hashmap[0][7]
+# hashmap[1][50]
+# hashmap[2][49]
+# hashmap[3][2]
+# hashmap[4][12]
+# hashmap[5][1]
+# hashmap[6][11]
+# hashmap[7][3]
+dict.has_key(key)
 
+for x in hashmap:
+    if x.has_key(1) == True:
+        print(x)
 
 print(out)

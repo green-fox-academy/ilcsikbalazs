@@ -6,18 +6,18 @@
 
 all_strings = 'dog goat dad duck doodle never'
 
-def palindrome_searcher(put_strings_here):
+def palindrome_searcher(input_strings):
     output=[]
-    for x in range(3,6):
-        for i in range(len(put_strings_here)):
-            string = put_strings_here[i:i+x]
+    for lenght_of_string in range(3,len(input_strings)+1):
+        for i in range(len(input_strings)):
+            string = input_strings[i:i+lenght_of_string]
             backwards = ""
             for j in range(len(string), 0, -1):
                 backwards += string[j-1]
-            if(string == backwards and len(string) == x):
+            if(string == backwards and len(string) == lenght_of_string):
                 output.append(string)
     return output
 
 
-stringer = palindrome_searcher('all_strings')
+stringer = palindrome_searcher(all_strings)
 print(stringer)
