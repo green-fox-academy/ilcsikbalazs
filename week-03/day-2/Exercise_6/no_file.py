@@ -5,10 +5,7 @@ def no_file(filename):
     try:
         file = open(filename, "r")
         file_readlines = file.readlines()
-        counter = 0
-        for i in file_readlines:
-            counter += 1
-        print(counter)
+        print(len(file_readlines))
         file.close()
 
     except FileNotFoundError:
