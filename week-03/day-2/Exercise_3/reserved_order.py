@@ -9,6 +9,7 @@ def reversed_order():
 
     file_write = open(input("Input the file's name: "), "w")
     file_write.write(text)
-
+    file_write.close()
+    reserved_rows.close()
 
 reversed_order()

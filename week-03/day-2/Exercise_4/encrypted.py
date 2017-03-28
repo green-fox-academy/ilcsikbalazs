@@ -8,7 +8,7 @@ def decrypt():
             if encrypted_text[i] == " ":
                 text += " "
             elif encrypted_text[i] == "\n":
-                text += "\n"    
+                text += "\n"
             else:
                 number_encrypt = ord(encrypted_text[i])
                 number_encrypt -= 1
@@ -17,6 +17,8 @@ def decrypt():
 
         decoded_file = open(input("Input the name of your file: "), "w")
         decoded_file.write(text)
+        decoded_file.close()
+        encrypted_file.close()
     except FileNotFoundError:
         print("You have to name the file!")
 

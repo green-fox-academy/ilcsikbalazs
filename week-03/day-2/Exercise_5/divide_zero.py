@@ -4,9 +4,9 @@
 # it should print "fail" if the parameter is 0
 
 def divide_by_zero(x):
-    if x == 0:
-        print("Fail!")
-    else:
+    try:
         print(10/x)
+    except ZeroDivisionError:
+        print("Fail")
 
 divide_by_zero(int(input("Input a number: ")))
