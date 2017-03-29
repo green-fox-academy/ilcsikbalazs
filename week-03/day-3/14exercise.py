@@ -12,17 +12,15 @@ def draw_line(x,y):
 # the x and y coordinates of the line's starting point
 # and draws a line from that point to the center of the canvas.
 # fill the canvas with lines from the edges, every 20 px, to the center.
-draw_line(0,0)
-draw_line(0,150)  #20pixels
-draw_line(0,300)
-
-numbers = []
-for num in range(0,301,20):
-    numbers.append(num)
 
 
-for i in numbers:
-    for j in numbers:
-        draw_line(i,j)
+for i in range(0,301,20):
+    draw_line(0,i)
+    draw_line(i,0)
+    draw_line(i,300)
+    draw_line(300,i)
+
+
+
 
 root.mainloop()
