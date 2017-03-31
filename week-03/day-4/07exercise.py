@@ -2,7 +2,6 @@
 # lowercase 'x' chars have been changed to 'y' chars.
 
 def changer(string):
-
     if string == "":
         return string
     elif string[0] == "x":
