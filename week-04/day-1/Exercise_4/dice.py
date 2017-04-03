@@ -4,7 +4,6 @@
 # You can reroll with reroll()
 # Your task is to get where all dice is a 6
 
-
 import random
 
 class Dice():
@@ -35,13 +34,15 @@ print(dice.getCurrent())
 dice.roll()
 print(dice.getCurrent())
 
+steps = 0
 for i in range(0,6):
     while dice.getCurrent(i) != 6:
-        print(dice.getCurrent())
+        steps += 1
+        # print(dice.getCurrent())
         if dice.getCurrent(i) != 6:
             dice.reroll(i)
 
-print(dice.getCurrent())
+print(dice.getCurrent(),steps)
 # dice.reroll(3)
 # print(dice.getCurrent())
 # print(dice.getCurrent())
