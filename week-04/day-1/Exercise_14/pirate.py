@@ -3,45 +3,55 @@ import random
 
 class Pirate:
 
-    def __init__(self, toxic_lvl=0, dies=False, passed_out=False):
+    def __init__(self, toxic_lvl=0, dies=False, passes_out=False):
         self.toxic_lvl = toxic_lvl
         self.dies = dies
-        self.passed_out = passed_out
+        self.passes_out = passes_out
+
 
     def drink_some_rum(self):
+        if (self.passes_out == True) or (self.dies == True):
+            return
         self.toxic_lvl += 1
-        if self.toxic_lvl >= 4:
-            self.pass_out() = True
+        if self.toxic_lvl > 4:
+            self.passed_out()
 
     def hows_it_going_mate(self):
-        if self.toxic_lvl < 4:
-            print("Pour me anudder!")
-        elif self.toxic_lvl >= 4:
-            print("Arghh, I'ma Pirate. How d'ya d'ink its goin?")
-
-    def die(self):
-        self.dies = True
-        print("Your pirate died!")
+        if (self.passes_out == True) or (self.dies == True):
+            return
+        if self.toxic_lvl > 4:
+            self.passed_out()
+        elif self.toxic_lvl <=4:
+            print("another")
 
     def brawl(self,other_pirate):
+        if (self.passes_out == True) or (self.dies == True):
+            return
         chance = random.randint(1,3)
         if chance == 1:
-            self.die()
+            print("You")
+            self.died()
         elif chance == 2:
-            other_pirate.die()
-            print("Enemy pirate died!")
+            print("Enemy")
+            other_pirate.died()
         elif chance == 3:
-            self.pass_out()
-            other_pirate.pass_out()
-            print("Both passed out!")
+            self.passed_out()
+            other_pirate.passed_out()
 
-    def pass_out(self):
-        self.passed_out = True
-        print("Pirate passed out")
+    def passed_out(self,other_pirate=None):
+        self.passes_out = True
+        print("Passed out")
+
+    def died(self, other_pirate=None):
+        self.dies = True
+        print("Died")
 
 
 
 jack = Pirate()
 blue = Pirate()
+jack.brawl(blue)
+
+
 
 # class Ship:
