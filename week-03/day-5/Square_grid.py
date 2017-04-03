@@ -10,7 +10,7 @@ def create_grid(x,y,size,width):
 
 def recusrsive(x,y,size,width):
     create_grid(x,y,size,width)
-    if size > 80:
+    if size > 60:
         recusrsive(x-size/4,y-size/4,size/2,width/2)
         recusrsive(x+size*3/4,y+size*3/4,size/2,width/2)
         recusrsive(x+size*3/4,y+size*3/4,size/2,width/2)
@@ -19,6 +19,6 @@ def recusrsive(x,y,size,width):
 
 
 
-recusrsive(150,150,300,10)
+recusrsive(150,150,300,30)
 
 root.mainloop()
