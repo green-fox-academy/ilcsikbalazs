@@ -19,22 +19,34 @@ class Flower:
     def __init__(self,name="",water_amount=10):
         self.name = name
         self.water_amount = water_amount
-        self.flower = []
         if self.water_amount < 5:
-            print("Flower needs water")
+            print("{} needs water".format(self.name))
+        elif self.water_amount > 5:
+            print("{} doesn't need water!".format(self.name))    
 
-    def watering(self,water,flower):
-        if self.water_amount > 5:
-            self.water_amount += water*0.75
-        elif self.water_amount < 5:
-            print("Flower doesn't need water!")
+    def watering(self,add_water,flower):
+        if self.water_amount < 5:
+            self.water_amount += add_water*0.75
+            print("{} has been watered.".format(self.name))
+            if self.water_amount < 5:
+                print("But {} still needs water!".format(self.name))
+            elif self.water_amount >= 5:
+                print("And doesn't need water.")
+        elif self.water_amount > 5:
+            print("{} doesn't need water!".format(self.name))
 
-    def create_flower(self,flower):
-        self.flower.append(flower)
+    def growing(self):
+        self.water_amount -= 1
+        print("{} is growing".format(self.name))
+            
 
-    def info(self):
-        print("{},{}".format(self.name,self.water_amount))
-
-    flower = Flower()
-    flower.watering(40,flower)
-    flower.info()
+flower = Flower("Yellow")
+flower.growing()
+flower.growing()
+flower.growing()
+flower.watering(1,flower)
+flower.growing()
+flower.growing()
+flower.growing()
+flower.watering(10,flower)
+    
