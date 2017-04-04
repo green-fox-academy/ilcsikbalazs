@@ -43,7 +43,7 @@ class Aircraft:
         return self.type
 
     def get_status(self):
-        print("Type: ",self.type,", Ammo: {}, Base Damage: {}, All Damage: {}".format(self.current_ammo, self.base_damage,
+        return ("Type: ",self.type,", Ammo: {}, Base Damage: {}, All Damage: {}".format(self.current_ammo, self.base_damage,
         self.base_damage * self.current_ammo))
         
     def fight(self):
@@ -51,15 +51,12 @@ class Aircraft:
         self.current_ammo = 0
         return all_damage
         
-    def refill(self,carrier):
-        if self.current_ammo > 0:
-            difference = self.max_ammo - self.current_ammo
-            carrier.stored_ammo -= difference
-            self.current_ammo = self.max_ammo
+    def refill(self):
+        self.current_ammo += self.max_ammo
 
-        elif self.current_ammo <= 0:
-            self.current_ammo = self.max_ammo
-            carrier.stored_ammo -= self.current_ammo
+
+
+
 
 
 
@@ -93,6 +90,20 @@ class Carrier:
         for i in self.stored_aircrafts:
             print(i.get_status())
 
+    def fill(self):
+        for i in self.stored_aircrafts:
+            self.stored_ammo -= i.current_ammo
+            i.refill()
+
+
+
+# fill
+# It should fill all the aircraft with ammo and substract the needed ammo from the ammo storage
+# If there is not enough ammo than it should start to fill the F35 types first
+# If there is no ammo when this method is called it should throw an exception
+
+
+
 
 # get_status
 # It should give back a string about it's and all of its aircrafts status like:
@@ -117,19 +128,15 @@ class Carrier:
     #         i.get_status()
     #     print(self.stored_ammo,self.health,aircrafts_list)
     #     print(i.get_status())
-# fill
-# It should fill all the aircraft with ammo and substract the needed ammo from the ammo storage
-# If there is not enough ammo than it should start to fill the F35 types first
-# If there is no ammo when this method is called it should throw an exception
 
 aircraft = F16()
 aircraft2 = F35()
 carrier = Carrier(400,400)
-aircraft2.refill(carrier)
 carrier.add_aircraft(aircraft)
+carrier.add_aircraft(aircraft)
+carrier.fill()
 carrier.add_aircraft(aircraft)
 carrier.add_aircraft(aircraft2)
 carrier.get_status()
-
 # fight
 # It should take another carrier as a refrence parameter and fire all the ammo from the aircrafts to it, than substract all the damage from it's health points
