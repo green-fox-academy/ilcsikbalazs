@@ -12,7 +12,6 @@
 # Base damage: 50
 
 # Methods:
-
 # fight
 # It should use all the ammos (set it to 0) and it should return the damage it took
 # The damage is the multiplication of the base damage and the ammos
@@ -23,6 +22,16 @@
 # It should return it's type as a string
 # get_status
 # It should return a string like: Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
+
+# Carrier
+# Create a class that represents an aircraft-carrier
+# The carrier should be able to store aircrafts
+# Each carrier should have a store of ammo represented as number
+# The inital ammo should be give by a parameter in it's constructor
+# It should store a health point as a number
+# Methods:
+# add_aircraft
+# It should take a string as the type of the aircraft (F16 / F35) and add a new aircraft to its store
 class Aircraft:
     def __init__(self,max_ammo,base_damage,current_ammo=0,type="Aircraft"):
         self.max_ammo = max_ammo
@@ -56,12 +65,6 @@ class F35(Aircraft):
         super().__init__(max_ammo,base_damage,current_ammo,type)
 
 
-# Carrier
-# Create a class that represents an aircraft-carrier
-# The carrier should be able to store aircrafts
-# Each carrier should have a store of ammo represented as number
-# The inital ammo should be give by a parameter in it's constructor
-# It should store a health point as a number
 
 class Carrier:
     def __init__(self,stored_ammo,health):
@@ -69,18 +72,24 @@ class Carrier:
         self.stored_ammo = stored_ammo
         self.health = health
 
-    def add_aircraft(self):
+    def add_aircraft(self,flight):
+        self.stored_aircrafts.append(flight.type)
+        print(self.stored_aircrafts)
 
-# Methods:
+    def fill(self):
 
-# add_aircraft
 
-# It should take a string as the type of the aircraft (F16 / F35) and add a new aircraft to its store
 # fill
-
 # It should fill all the aircraft with ammo and substract the needed ammo from the ammo storage
 # If there is not enough ammo than it should start to fill the F35 types first
 # If there is no ammo when this method is called it should throw an exception
+
+# flight = F35()
+# flight1 = F16()
+
+# carrier = Carrier(400,400)
+
+
 # fight
 
 # It should take another carrier as a refrence parameter and fire all the ammo from the aircrafts to it, than substract all the damage from it's health points
