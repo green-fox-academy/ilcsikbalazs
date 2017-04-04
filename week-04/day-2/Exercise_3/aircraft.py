@@ -56,9 +56,6 @@ class F35(Aircraft):
         super().__init__(max_ammo,base_damage,current_ammo,type)
 
 
-
-
-
 # Carrier
 # Create a class that represents an aircraft-carrier
 # The carrier should be able to store aircrafts
