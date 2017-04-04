@@ -52,8 +52,7 @@ class Aircraft:
         return all_damage
         
     def refill(self):
-        self.current_ammo += self.max_ammo
-
+        self.current_ammo = self.max_ammo        
 
 
 
@@ -91,10 +90,11 @@ class Carrier:
             print(i.get_status())
 
     def fill(self):
+        needed_ammo = 0
         for i in self.stored_aircrafts:
-            self.stored_ammo -= i.current_ammo
+            needed_ammo += i.max_ammo
             i.refill()
-
+        self.stored_ammo -= needed_ammo   
 
 
 # fill
@@ -134,9 +134,9 @@ aircraft2 = F35()
 carrier = Carrier(400,400)
 carrier.add_aircraft(aircraft)
 carrier.add_aircraft(aircraft)
-carrier.fill()
-carrier.add_aircraft(aircraft)
 carrier.add_aircraft(aircraft2)
+carrier.add_aircraft(aircraft)
+carrier.fill()
 carrier.get_status()
 # fight
 # It should take another carrier as a refrence parameter and fire all the ammo from the aircrafts to it, than substract all the damage from it's health points
