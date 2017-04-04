@@ -43,7 +43,7 @@ class Aircraft:
         return self.type
 
     def get_status(self):
-        print("Type ",self.type,", Ammo: {}, Base Damage: {}, All Damage: {}".format(self.current_ammo, self.base_damage,
+        print("Type: ",self.type,", Ammo: {}, Base Damage: {}, All Damage: {}".format(self.current_ammo, self.base_damage,
         self.fight()))
         
     def fight(self):
@@ -51,8 +51,7 @@ class Aircraft:
         self.current_ammo = 0
         return all_damage
 
-    def refill(self,carrier_ammo):
-        carrier_ammo -= self.max_ammo
+    def refill(self):
         self.current_ammo = self.max_ammo
 
 class F16(Aircraft):
@@ -73,19 +72,18 @@ class Carrier:
         self.health = health
 
     def add_aircraft(self,flight):
-        self.stored_aircrafts.append(flight.get_type())
-        return self.stored_aircrafts
+        self.stored_aircrafts.append(flight)
 
-    def fill(self,):
+        return self.stored_aircrafts
+     
+    def fill(self):
         for i in self.stored_aircrafts:
             i.refill()
+            self.stored_ammo -= i.max_ammo
 
 
-aircraft = F16()
-# aircraft.refill(400)
-# aircraft.get_status()
-carrrier = Carrier(400,400)
-carrrier.add_aircraft(aircraft)
+    def status(self):
+        print(self.stored_ammo,self.health)        
 
 
 # fill
@@ -93,7 +91,17 @@ carrrier.add_aircraft(aircraft)
 # If there is not enough ammo than it should start to fill the F35 types first
 # If there is no ammo when this method is called it should throw an exception
 
+aircraft = F16()
+aircraft.refill()
+aircraft.get_status()
+carrrier = Carrier(400,400)
+carrrier.add_aircraft(aircraft)
+carrrier.add_aircraft(aircraft)
+carrrier.add_aircraft(aircraft)
+carrrier.add_aircraft(aircraft)
 
+carrrier.fill()
+carrrier.status()
 
 # fight
 
