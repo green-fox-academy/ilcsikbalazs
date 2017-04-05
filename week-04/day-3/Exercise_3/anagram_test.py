@@ -11,7 +11,7 @@ class Test_anagram(unittest.TestCase):
         anagrams.anagram_checker()
         self.assertEquals(anagrams.anagram_checker(), False)
     def test_anagram_otherstring(self):
-        anagrams = Anagram("tlst", "seltt")
+        anagrams = Anagram("tlst", "sett")
         anagrams.anagram_checker()
         self.assertEquals(anagrams.anagram_checker(), False)
 

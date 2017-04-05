@@ -20,14 +20,15 @@ class Anagram:
             self.is_anagram = False
             return self.is_anagram
             
-        for i in self.string_a:
-            if i in self.string_b:
-                self.is_anagram = True
-            else: 
-                self.is_anagram = False
-                return self.is_anagram
+        else:
+            for i in self.string_a:
+                if i in self.string_b:
+                    self.is_anagram = True
+                else: 
+                    self.is_anagram = False
+                    return self.is_anagram
 
-        return self.is_anagram
+            return self.is_anagram
 
 anagrams = Anagram()
 anagrams.anagram_checker()
