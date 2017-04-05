@@ -44,6 +44,13 @@ class Test_sum(unittest.TestCase):
         sum.return_list()
         self.assertEquals(sum.return_list(), [])
 
+    def test_return_nullandmoreelementlist(self):
+        sum = Sum()
+        sum.add_number()
+        sum.add_number(1)
+        sum.return_list()
+        self.assertEquals(sum.return_list(), [1])
+
 
 
 if __name__ == "__main__":
