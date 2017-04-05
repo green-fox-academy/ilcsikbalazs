@@ -10,7 +10,7 @@ class Anagram:
         self.result = False
         self.string_a = []        
         for i in string_a:
-
+            self.string_a
     
     def anagram_checker(self):
         

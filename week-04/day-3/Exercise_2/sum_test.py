@@ -21,13 +21,13 @@ class Test_sum(unittest.TestCase):
     def test_return_emptylist(self):
         sum = Sum()
         sum.return_list()
-        self.assertEquals(sum.return_list(), [])
+        self.assertEquals(sum.return_list(), 0)
 
     def test_return_oneelementlist(self):
         sum = Sum()
         sum.add_number(1)
         sum.return_list()
-        self.assertEquals(sum.return_list(), [1])
+        self.assertEquals(sum.return_list(), 1)
 
     def test_return_moreelementlist(self):
         sum = Sum()
@@ -36,20 +36,20 @@ class Test_sum(unittest.TestCase):
         sum.add_number(1)
         sum.add_number(1)
         sum.return_list()
-        self.assertEquals(sum.return_list(), [1,1,1,1])
+        self.assertEquals(sum.return_list(), 4)
 
     def test_return_nullelementlist(self):
         sum = Sum()
         sum.add_number()
         sum.return_list()
-        self.assertEquals(sum.return_list(), [])
+        self.assertEquals(sum.return_list(), 0)
 
     def test_return_nullandmoreelementlist(self):
         sum = Sum()
         sum.add_number()
         sum.add_number(1)
         sum.return_list()
-        self.assertEquals(sum.return_list(), [1])
+        self.assertEquals(sum.return_list(), 1)
 
 
 

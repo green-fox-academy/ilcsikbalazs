@@ -24,4 +24,7 @@ class Sum:
             self.sum_list.append(number)
 
     def return_list(self):
-        return self.sum_list    
+        sum = 0
+        for i in self.sum_list:
+            sum += i
+        return sum 
