@@ -1,10 +1,10 @@
 # Cows and Bulls
 
-# Create a class what is capable of playing exactly 
-# one game of Cows and Bulls (CAB). The player have to 
-# guess a 4 digit number. For every digit that the player 
-# guessed correctly in the correct place, they have a 
-# “cow”. For every digit the player guessed correctly 
+# Create a class what is capable of playing exactly
+# one game of Cows and Bulls (CAB). The player have to
+# guess a 4 digit number. For every digit that the player
+# guessed correctly in the correct place, they have a
+# “cow”. For every digit the player guessed correctly
 # in the wrong place is a “bull.”
 
 # The CAB object should have a random 4 digit number,
@@ -36,7 +36,7 @@ class CAB:
 
     def guess(self):
         self.guess_counter = 0
-        while self.guess_counter != 10:
+        while (self.guess_counter != 10):
             print("Guess the numbers!")
             print(self.number_list)
             guess_list = []
@@ -47,26 +47,35 @@ class CAB:
                     n = int(input())
                 guess_list.append(n)
             print(guess_list)
-            #bull
-            result_list = []
+            # bull
+            result_list_bull = []
             for i in guess_list:
                 if i in self.number_list:
                     self.result = "bull"
-                    result_list.append(self.result)
-            print(result_list)
-            #cow
+                    result_list_bull.append(self.result)
+            # cow
+            result_list_cow = []
             for i in range(0,4):
                 if guess_list[i] == self.number_list[i]:
                     self.result = "cow"
-                    result_list.append(self.result)
-            print(result_list)
+                    result_list_cow.append(self.result)
+
+                            
+            if len(result_list_bull) == len(result_list_cow):
+                print(result_list_cow)
+            
+
+            elif len(result_list_bull) > len(result_list_cow):
+                print(result_list_cow)
+                print(result_list_bull)
+                                
+            
             self.guess_counter += 1
             print("Guess counter is: ",self.guess_counter)
-            
 
 game = CAB()
 game.randomizer()
 game.guess()
 
-        
+
 
