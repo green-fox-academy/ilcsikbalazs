@@ -19,7 +19,8 @@
 import random
 
 class CAB:
-    def __init__(self, game_state="playing", guess_counter=0):
+    def __init__(self, game_state="playing", guess_counter=0, result=""):
+        self.result = result
         self.number_list = []
         self.game_state = game_state
         self.guess_counter = guess_counter
@@ -31,5 +32,38 @@ class CAB:
             for i in range(0,4):
                 n = random.randint(1,9)
                 self.number_list.append(n)
+
         return self.number_list
+
+    def guess(self):
+        self.guess_counter = 0
+        while self.guess_counter != 10:
+            print(self.number_list)
+            guess_list = []
+            for i in range(0,4):
+                n = int(input())
+                guess_list.append(n)
+            # n1 = int(input())
+            # n2 = int(input())
+            # n3 = int(input())
+            # n4 = int(input())
+            # guess_list.append(n1)
+            # guess_list.append(n2)
+            # guess_list.append(n3)
+            # guess_list.append(n4)
+            print(guess_list)
+            for i in guess_list:
+                if i in self.number_list:
+                    self.result = "bull"
+                    print(self.result)
+                
+            self.guess_counter += 1
+            print("Guess counter is: ",self.guess_counter)
+            
+
+game = CAB()
+game.randomizer()
+game.guess()
+
+        
 
