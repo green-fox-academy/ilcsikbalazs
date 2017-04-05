@@ -29,5 +29,16 @@ class Test_sum(unittest.TestCase):
         sum.return_list()
         self.assertEquals(sum.return_list(), [1])
 
+    def test_return_moreelementlist(self):
+        sum = Sum()
+        sum.add_number(1)
+        sum.add_number(1)
+        sum.add_number(1)
+        sum.add_number(1)
+        sum.return_list()
+        self.assertEquals(sum.return_list(), [1,1,1,1])
+
+
+
 if __name__ == "__main__":
     unittest.main()
