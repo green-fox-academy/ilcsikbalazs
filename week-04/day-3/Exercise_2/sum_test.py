@@ -38,6 +38,12 @@ class Test_sum(unittest.TestCase):
         sum.return_list()
         self.assertEquals(sum.return_list(), [1,1,1,1])
 
+    def test_return_nullelementlist(self):
+        sum = Sum()
+        sum.add_number()
+        sum.return_list()
+        self.assertEquals(sum.return_list(), [])
+
 
 
 if __name__ == "__main__":
