@@ -18,10 +18,16 @@ import unittest
 from sum import Sum
 
 class Test_sum(unittest.TestCase):
-    def test_return(self):
+    def test_return_emptylist(self):
         sum = Sum()
         sum.return_list()
         self.assertEquals(sum.return_list(), [])
+
+    def test_return_oneelementlist(self):
+        sum = Sum()
+        sum.add_number(1)
+        sum.return_list()
+        self.assertEquals(sum.return_list(), [1])
 
 if __name__ == "__main__":
     unittest.main()

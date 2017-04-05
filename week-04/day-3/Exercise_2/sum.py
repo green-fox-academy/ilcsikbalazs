@@ -16,6 +16,9 @@
 class Sum:
     def __init__(self):
         self.sum_list=[]
+    
+    def add_number(self,number):
+        self.sum_list.append(number)
 
     def return_list(self):
         return self.sum_list    
