@@ -108,9 +108,9 @@ class Carrier:
         self.stored_ammo -= needed_ammo   
 
 
-    def fight(self,enemy):
-        while self.health > 0:
-            pass
+    # def fight(self,enemy):
+    #     while self.health > 0:
+    #         pass
 
 # fight
 # It should take another carrier as a refrence parameter and fire all the
@@ -125,4 +125,4 @@ carrier.add_aircraft(aircraft)
 carrier.fill()
 carrier.get_status()
 enemy = Carrier(400,400)
-carrier.fight(enemy)
+# carrier.fight(enemy)

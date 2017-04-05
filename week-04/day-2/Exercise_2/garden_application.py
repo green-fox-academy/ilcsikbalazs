@@ -11,42 +11,38 @@
 # when watering it the tree can only absorb the 40% of the water
 # eg. watering with 10 the tree's amount of water should only increase with 4
 
-# class Garden:
-#     def __init__(sel):
+class Garden:
+    def __init__(self):
+        self.plants = []
 
-class Flower:
+    def add_plant(self,plant):
+        self.plants.append(plant)
 
-    def __init__(self,name="",water_amount=10):
+    def watering(self,water): #####
+        wateramount_per_plant = water / len(self.plants)
+        for i in self.plants:
+
+class Plants:
+    def __init__(self, current_water, type, min_water, name):
+        self.current_water = current_water
+        self.type = type
+        self.min_water = min_water
         self.name = name
-        self.water_amount = water_amount
-        if self.water_amount < 5:
-            print("{} needs water".format(self.name))
-        elif self.water_amount > 5:
-            print("{} doesn't need water!".format(self.name))    
 
-    def watering(self,add_water,flower):
-        if self.water_amount < 5:
-            self.water_amount += add_water*0.75
-            print("{} has been watered.".format(self.name))
-            if self.water_amount < 5:
-                print("But {} still needs water!".format(self.name))
-            elif self.water_amount >= 5:
-                print("And doesn't need water.")
-        elif self.water_amount > 5:
-            print("{} doesn't need water!".format(self.name))
+    def need_water(self):
+        if self.current_water < self.min_water:
+            print(self.name + self.type + "needs water")
+        elif self.current_water >= self.min_water:
+            print(self.name + self.type + "doesnt need water") 
 
-    def growing(self):
-        self.water_amount -= 1
-        print("{} is growing".format(self.name))
-            
 
-flower = Flower("Yellow")
-flower.growing()
-flower.growing()
-flower.growing()
-flower.watering(1,flower)
-flower.growing()
-flower.growing()
-flower.growing()
-flower.watering(10,flower)
-    
+class Flower(Plants):
+    def __init__(self, current_water=20, type="Flower", min_water=5, name="yellow"):
+        super().__init__(current_water,type,min_water)
+
+class Tree(Plants):
+    def __init__(self, current_water=20, type="Tree", min_water=10, name="purple"):
+        super().__init__(current_water,type,min_water)
+ 
+
+ 
