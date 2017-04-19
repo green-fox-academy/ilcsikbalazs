@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: unset;
+}
+
+.item {
+  align-self: flex-end;
+}
+
+.item:first-child{
+    background: green;
+    width: 170;
+    height: 170;
+}
+.item:nth-child(2){
+    background: yellow;
+    width: 170;
+    height: 170;
+}
+.item:nth-child(3){
+    background: purple;
+    width: 170;
+    height: 170;
+}

@@ -1,0 +1,29 @@
+.container {
+    width: 380px;
+    display: block;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item {
+    align-self: flex-end;
+}
+.green{
+    background: green;
+    width: 100%;
+    height: 130px;
+}
+.yellow{
+    position: relative;
+    top: 130px;
+    background: yellow;
+    width: 100%;
+    height: 260px;
+}
+.purple{
+    position: relative;
+    bottom: 260px;
+    background: purple;
+    width: 100%;
+    height: 130px;
+}

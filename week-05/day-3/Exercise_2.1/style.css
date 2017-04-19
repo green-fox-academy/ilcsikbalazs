@@ -1,0 +1,13 @@
+.yellow{
+    width: 530px;
+    height: 200px;
+    background: yellow;
+}
+.purple{
+    position: relative;
+    top: 62px;
+    left: 227;
+    background: purple;
+    width: 76px;
+    height: 76px;
+}
