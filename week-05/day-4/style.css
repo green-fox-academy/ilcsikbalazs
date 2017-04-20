@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+}
+.wrap{
+    background: #DCD6CD;
+    margin: 10%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 100%;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+h2{
+    background: #938C97;
+    color: white;
+}
+input[type="text"]{
+    background: white;
+    height: 40px;
+}
+input[id="name"]{
+    width: 100%;
+}
+input[id="birthday"]{
+    width: 80px;
+}
+form{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.birthdaycolumn{
+    width: 50%;
+}
+.gendercolumn{
+    width: 50%;
+    min-width: 250px;
+}
+label[name="genders"]{
+    margin-right: 40px;
+}
