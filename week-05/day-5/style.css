@@ -1,0 +1,122 @@
+.wrap{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #3869AC;
+    padding-bottom: 25px;
+}
+
+nav{
+    width: 100%;
+}
+
+nav ul{
+    background: #3869AC;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a{
+    font-size: 19px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: lightcyan;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-box-shadow: inset -4px -7px 18px -3px rgba(0,0,0,1);
+    -moz-box-shadow: inset -4px -7px 18px -3px rgba(0,0,0,1);
+    box-shadow: inset -4px -7px 18px -3px rgba(0,0,0,1);
+}
+
+nav a:hover{
+    background: #83A6DC;
+    -webkit-box-shadow: inset 2px 4px 18px -3px rgba(0,0,0,1);
+    -moz-box-shadow: inset 2px 4px 18px -3px rgba(0,0,0,1);
+    box-shadow: inset 2px 4px 18px -3px rgba(0,0,0,1);
+}
+
+@media screen and (min-width: 920px){
+    nav ul{
+        display: flex;
+    }
+
+    nav li{
+        flex: 1 1 0;
+    }
+    
+}
+
+h2{
+    flex-basis: 100%;
+    background: deepskyblue;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.personal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 400px;
+}
+
+.personal ul{
+    max-height: 435px;
+    flex: 3 0 280px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 18px;
+    color: midnightblue;
+    font-weight: bold;
+    background: deepskyblue;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.personal li{
+    height: 100%;
+    border: solid 3px #3869AC;
+    border-left: 0;
+    text-align: center;
+}
+
+.image{
+    max-width: 280px;
+    flex: 1 0 280px;
+    background: no-repeat;
+    background-position-x: center;
+    background-image: url("envagyok.png");
+    background-size: contain;
+}
+
+.texts{
+    padding: 15px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+p{
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    font-weight: bold;
+    background: #00BFFF;
+    height: 60px;
+    color: darkblue;
+}
+
+@media screen and (max-width: 920px){
+    p{
+        height: 180px;
+    }
+}
+
+.TTT{
+    position: fixed;
+    right: 5px;
+    left: 2px;
+}

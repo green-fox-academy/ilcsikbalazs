@@ -1,44 +1,105 @@
-*{
-    margin: 0;
-}
 .wrap{
     background: #DCD6CD;
-    margin: 10%;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 100%;
+    margin: auto;
+    padding: 5% 12%;
+    max-width: 600px;
+    font-family: 'Roboto', sans-serif;
 }
-.title{
+
+h1{
+    font-size: 17px;
+    color: #4D4663;
+}
+
+header{
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
+
 h2{
+    border-radius: 2px;
     background: #938C97;
+    min-width: 210px;
+    min-height: 30px;
+    padding-left: 10px;
     color: white;
+    font-size: 13px;
+    font-weight: normal;
 }
-input[type="text"]{
-    background: white;
-    height: 40px;
+
+main{
+    min-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-input[id="name"]{
-    width: 100%;
+
+h3{
+    margin-top: 0;
+    color: #4F4765;
+    font-size: 11px;
+    font-weight: bolder;
 }
-input[id="birthday"]{
-    width: 80px;
+
+span{
+    color: red;
+    font-size: 10px;
 }
+
 form{
+    width: 220px;
+}
+
+.sider.left{
+    width: 220px;
+}
+
+input[type="text"]{
+    border-radius: 2px;
+    width: 100%;
+    height: 28px;
+    margin-bottom: 10px;
+}
+
+input[id="birthday"]{
+    width: 60%;
+}
+
+.sider.left.birthdaycolumn{
+    width: 50%;
+}
+
+.sider.left.birthgend{
+    display: flex;
+}
+
+.sider.left.gendercolumn{
+    width: 50%;
+}
+
+label[name="genders"]{
+    font-size: 11px;
+    color: #5E566F;
+    margin-right: 12px;
+}
+
+.sider.left.brandcolumn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #59526C;
+}
+
+.sider.left.brandcolumn.brandleft{
     width: 50%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-flow: column;
 }
-.birthdaycolumn{
+
+.sider.left.brandcolumn.brandright{
     width: 50%;
-}
-.gendercolumn{
-    width: 50%;
-    min-width: 250px;
-}
-label[name="genders"]{
-    margin-right: 40px;
+    display: flex;
+    flex-flow: column;
 }

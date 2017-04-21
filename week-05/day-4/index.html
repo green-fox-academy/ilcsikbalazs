@@ -2,38 +2,115 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
 <body>
     <div class="wrap">
+        <h1>Profil</h1>
         <header>
-            <h1>Profil</h1>
-        </header>
-        <div class="title">
             <h2>Személyes adatok</h2>
             <h2>Kapcsolat</h2>
-        </div>
-        <form class="sider left">
-            <label for="name"><h3>Név</h3></label>
-            <input type="text" id="name">
-            <div class="birthdaycolumn">
-                <label for="birthday"><h3>Születési éved</h3></label>
-                <input type="text" id="birthday" value="pl.1984">
-            </div>
-            <div class="gendercolumn">
-                <h3>Nemed</h3>
-                <input type="radio" name="gender" id="female">
-                <label for="female" name="genders">nő</label>
-                <input type="radio" name="gender" id="male">
-                <label for="male" name="genders">férfi</label>
-            </div>
-            <div class="brandcolumn">
-                <h3>Milyen márkákat szeretsz?</h3>
-                <div class="brandleft">
-                    <input type="checkbox" id="adidas">
-                    <label for="adidas">Adidas</label>
+        </header>
+        <main>
+            <form class="sider left">
+                <div class="sider left name">
+                    <label for="name"><h3>Név <span>*</span></h3></label>
+                    <input type="text" id="name">
                 </div>
+                <div class="sider left birthgend">
+                    <div class="sider left birthdaycolumn">
+                        <label for="birthday"><h3>Születési éved</h3></label>
+                        <input type="text" id="birthday" value="pl.1984">
+                    </div>
+                    <div class="sider left gendercolumn">
+                        <h3>Nemed</h3>
+                        <input type="radio" name="gender" id="female">
+                        <label for="female" name="genders">nő</label>
+                        <input type="radio" name="gender" id="male">
+                        <label for="male" name="genders">férfi</label>
+                    </div>
+                </div>
+                <div class="sider left brandcolumn">
+                    <h3>Milyen márkákat szeretsz?</h3>
+                    <div class="sider left brandcolumn brandleft">
+                        <div>
+                            <input type="checkbox" id="adidas">
+                            <label for="adidas" id="brandname">Adidas</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="apple">
+                            <label for="apple" id="brandname">Apple</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="cocacola">
+                            <label for="cocacola" id="brandname">Coca-Cola</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="mazda">
+                            <label for="mazda" id="brandname">Mazda</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="nike">
+                            <label for="nike" id="brandname">Nike</label>
+                        </div>
+                    </div>
+                    <div class="sider left brandcolumn brandright">
+                        <div>
+                            <input type="checkbox" id="opel">
+                            <label for="opel" id="brandname">Opel</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="rayban">
+                            <label for="rayban" id="brandname">Ray-Ban</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="starbucks">
+                            <label for="starbucks" id="brandname">Starbucks</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tesla">
+                            <label for="tesla" id="brandname">Tesla</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="yahoo">
+                            <label for="yahoo" id="brandname">Yahoo</label>
+                        </div>
+                    </div>
+                    <p>Többet is választhatsz!</p>
+                </div>
+            </form>
+            <form class="sider right">
+                <div>
+                    <label for="telephone"><h3>Telefonszám <span>*</span></h3></label>
+                    <input type="text" id="telephone">
+                </div>
+                <div>
+                    <label for="email"><h3>E-mail cím <span>*</span></h3></label>
+                    <input type="email" id="email">
+                </div>
+                <div>
+                    <label for="facebook"><h3>Facebook profilod</h3></label>
+                    <input type="text" id="facebook">
+                </div>
+                <div>
+                    <label for="twitter"><h3>Twitter profilod</h3></label>
+                    <input type="text" id="twitter">
+                </div>
+                <div>
+                    <label for="house"><h3>Milyen házban laksz?</h3></label>
+                    <input type="text" id="house">
+                </div>
+            </form>
+        <main>
+        <footer>
+            <div class="introductioncolumns">
+                <label for="introduction"><h3>Bemutatkozás</h3></label>
+                <input type="text">
             </div>
-        </form>
+            <div>
+                <input type="file"></input>
+            </div>
+        </footer>
     </div>
 </body>

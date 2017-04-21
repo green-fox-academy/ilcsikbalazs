@@ -1,0 +1,34 @@
+* {
+  background: url(mountains.jpg)#207DCD;
+}
+
+h1 {
+  color: #207DCD;
+  background: black;
+  text-align: center;
+}
+
+h2 {
+  background: black;
+  color: #207DCD;
+  display: block;
+}
+
+img {
+  width: 250px;
+  display: inline;
+  float: right;
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+p {
+  background: rgba(0, 0, 255, 0);
+  width: 75%;
+  padding-left: 10%;
+}
+
+ul, li {
+  background: rgba(0, 0, 255, 0);
+
+}
