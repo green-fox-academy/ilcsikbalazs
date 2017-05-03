@@ -24,8 +24,17 @@ var queue = [
 // If alcohol is found confiscate it (set it to zero and add it to security_alchol_loot) and let them enter the festival
 
 function securityCheck() {
+    var alcoholLoot = 0;
+    var whatchlist = [];
     for (var i in queue) {
-        console.log(i);
+        if (queue[i].alcohol > 0) {
+            alcoholLoot += queue[i].alcohol;
+            queue[i].alcohol = 0;
+        } if (queue[i].guns > 0) {
+            whatchlist.push((queue[i].name));
+        } 
     }
+    console.log(whatchlist, alcoholLoot);
 }
 securityCheck();
+
