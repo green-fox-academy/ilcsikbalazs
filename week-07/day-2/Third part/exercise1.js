@@ -17,9 +17,11 @@ var students = [
 
 
 function candies() {
+    var sum = 0;
     for (var i in students) {
-        console.log(students[i]['candies']);
+        sum += students[i]['candies'];
     };
+    console.log(sum);
 }
 
 function lessThan5() {

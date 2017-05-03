@@ -22,3 +22,10 @@ var queue = [
 
 // If guns are found, remove them and put them on the watchlist (only the names)
 // If alcohol is found confiscate it (set it to zero and add it to security_alchol_loot) and let them enter the festival
+
+function securityCheck() {
+    for (var i in queue) {
+        console.log(i);
+    }
+}
+securityCheck();
