@@ -115,8 +115,18 @@ p{
     }
 }
 
-.TTT{
+.ttt p{
+    background: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    text-align: center;
+    font-size: 25px;
+    color: white;
     position: fixed;
-    right: 5px;
-    left: 2px;
+    bottom: 0px;
+    right: 10px;
+    
+}
+
+a{
+    text-decoration: none;
 }

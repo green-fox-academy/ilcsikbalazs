@@ -48,7 +48,7 @@ class CAB:
             results.append("cow")
         else:
             for i in guess_list:
-                if i in self.random_list:
+                if (i in self.random_list):
                     results.append("bull")
 
         print(results)
