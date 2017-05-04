@@ -7,7 +7,14 @@
 <body>
 
   <a href="javascript:
-    
+    function greenFox1() {
+        var h1s = document.querySelectorAll('h1');
+        for (var i = 0; i < h1s.length; i++) {
+            h1s[i].textContent = 'Green Fox Academy Conquers the World';
+        }
+    }
+    greenFox1();    
+
     function greenFox() {
         var img = document.querySelectorAll('img');
         img.forEach(function(element) {
