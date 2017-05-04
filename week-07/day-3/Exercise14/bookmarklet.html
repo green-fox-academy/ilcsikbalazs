@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM: Bookmarklet</title>
+</head>
+<body>
+
+  <a href="javascript:
+    
+    function greenFox() {
+        var h1s = document.querySelectorAll('h1');
+        for (var i = 0; i < h1s.length; i++) {
+            h1s[i].textContent = 'Green Fox Academy Conquers the World';
+        }
+    }
+    greenFox();
+  ;">Drag me in the bookmarks bar!</a>
+
+</body>
+</html>

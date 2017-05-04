@@ -20,6 +20,10 @@
   <script>
     // Create a script that replaces every h1 headline's content
     // with 'Green Fox Academy Conquers the World'.
+    var h1s = document.querySelectorAll('h1');
+    for (var i = 0; i < h1s.length; i++) {
+        h1s[i].textContent = 'Green Fox Academy Conquers the World';
+    }
     // Create a bookmarklet that does that on any website.
   </script>
   
