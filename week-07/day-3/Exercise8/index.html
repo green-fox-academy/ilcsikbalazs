@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: CreateElement</title>
+</head>
+<body>
+  <ul class="asteroids">
+    <li id="b325" class="asteroid">The King</li>
+    <li class="asteroid b326">The Conceited Man</li>
+  </ul>
+  <div class="container"></div>
+
+  <script>
+    // Add an item that says 'The Green Fox' to the asteroid list.
+    var newLi = document.createElement('li');
+    var ul = document.querySelector('ul');
+    ul.appendChild(newLi);
+    // Add an item that says 'The Lamplighter' to the asteroid list.
+    newLi.textContent = 'The Lamplighter';
+    // Add a heading saying 'I can add elements to the DOM!' to the .container.
+    var heading = document.createElement('header');
+    
+    // Add an image, any image, to the container.
+  </script>
+</body>
+</html>
