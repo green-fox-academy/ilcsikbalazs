@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: EventListeners</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    div {
+      height: 100vh;
+    }
+    .party {
+      background: url(https://media.giphy.com/media/4c4jQPdVv381G/giphy.gif);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button>Party</button>
+  </div>
+
+  <script>
+    // Turn the party on and off by clicking the button.
+    var div = document.querySelector('div');
+    var button = document.querySelector('button');
+    button.addEventListener('click', function(){
+        if (div.className === 'party') {
+            div.className = '';
+        } else {
+            div.className = 'party';
+        }
+
+    })
+  </script>
+</body>
+</html>
