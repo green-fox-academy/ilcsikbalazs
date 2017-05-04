@@ -20,7 +20,9 @@
     newLi.textContent = 'The Lamplighter';
     // Add a heading saying 'I can add elements to the DOM!' to the .container.
     var heading = document.createElement('header');
-    
+    var container = document.querySelector('.container');
+    container.appendChild(heading);
+    heading.textContent = 'I can add elements to the DOM!';
     // Add an image, any image, to the container.
   </script>
 </body>
