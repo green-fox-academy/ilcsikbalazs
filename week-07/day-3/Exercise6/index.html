@@ -13,10 +13,17 @@
 
   <script>
     // Write the image's url to the console.
+    var image = document.querySelector('img').getAttribute('src');
+    console.log(image);
     // Replace the image with a picture of yourself.
+    document.querySelector('img').setAttribute('src', 'lol.png');
     // Make the link point to the Green Fox Academy website.
+    document.querySelector('a').setAttribute('href', 'https://www.greenfoxacademy.com/');
     // Disable the second button.
+    var disabledBtn = document.querySelector('.this-one');
+    disabledBtn.setAttribute('disabled', true);
     // Replace its text with 'Don't click me!'.
+    disabledBtn.textContent = "Don't click me!";
   </script>
 
 </body>
