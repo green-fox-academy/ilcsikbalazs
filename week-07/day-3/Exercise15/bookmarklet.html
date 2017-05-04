@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM: Bookmarklet</title>
+</head>
+<body>
+
+  <a href="javascript:
+    
+    function greenFox() {
+        var img = document.querySelectorAll('img');
+        img.forEach(function(element) {
+        element.setAttribute('src', 'http://bit.ly/lpgreenfox');
+    });
+    }
+    greenFox();
+  ;">Drag me in the bookmarks bar!</a>
+
+</body>
+</html>
