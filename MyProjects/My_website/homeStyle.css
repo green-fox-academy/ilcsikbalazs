@@ -1,0 +1,141 @@
+.main {
+    margin: 0 10%;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.unvisible {
+    display: none;
+}
+
+nav {
+    margin: auto;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+ nav li {
+    font-family: 'Love Ya Like A Sister', cursive;
+    border-left: 5px solid #2eb9ce;
+    text-align: center;
+    flex: 1 0;
+    font-size: 25px;
+    list-style-type: none;
+    background: image();
+}
+
+nav ul li:hover {
+    cursor: default;
+}
+
+#idcontact {
+    border-right: 5px solid #2eb9ce;
+}
+
+@media screen and (max-width: 600px){
+    nav ul {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav li {
+        border: 0;
+        border-top: 5px solid #2eb9ce;
+    }
+
+    #idcontact {
+        border-right: 0;
+        border-bottom: 5px solid #2eb9ce;
+    }
+}
+
+nav li:hover {
+    background: #adeff9;
+}
+
+nav li:active {
+    box-shadow:0px 0px 0px 2px #2eb9ce inset;
+}
+
+.main {
+    /*background: url(images/bkgrnd.jpg);*/
+}
+
+footer {
+    margin-top: 20px;
+    border-top: 4px solid #2eb9ce;
+}
+
+/*home*/
+.home {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home div {
+    flex-basis: 400px;
+    margin: 10px 0;
+    border: 4px solid #33bbc3;
+}
+.home div img {
+    width: 100%;
+    height: 100%;
+}
+
+.home div p {
+    margin: 15px;
+}
+
+
+.home .nextImg {
+    flex-grow: 1;
+}
+
+.home .image {
+    text-align: center;
+}
+
+/*contact*/
+.contact .logos{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    border: 4px solid #2eb9ce;
+    border-bottom: 0;
+}
+
+.contact .logos a img{
+    width: 90%;
+}
+
+.comment {
+    display: flex;
+    flex-flow: column;
+    border-top: 4px solid #2eb9ce;
+}
+
+.email {
+    display: inline-block;
+}
+
+.text {
+    display: inline-block;
+}
+
+.comment input {
+    width: 100%;
+}
+
+.text textarea {
+    width: 100%;
+}
+
+.comment button {
+    align-self: flex-end;
+    width: 200px;
+}
