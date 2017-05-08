@@ -14,9 +14,7 @@ function sudokuLineChecker(line) {
     if (line.length === 9) {
         for (var i = 0; i < line.length; i++ ) {
             if (line[i] >= 0 && line[i] <= 9) {
-                if (line[i] === 0) {
-                    result;
-                } else {
+                if (line[i] !== 0) {
                     for (var j = 0; j < actualNumberList.length; j++) {
                         if (actualNumberList[j] === line[i]) {
                             result = false;
@@ -24,7 +22,7 @@ function sudokuLineChecker(line) {
                     }
                     actualNumberList.push(line[i]);
                 }         
-            }else {
+            } else {
                 result = false;
             }
         }
