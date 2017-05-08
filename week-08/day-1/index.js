@@ -3,10 +3,11 @@ var test = require('tape');
 var sudokuLine1 = [0,0,0,0,0,0,0,0,0];
 var sudokuLine2 = [0,0,0,0,0,'8',0,0,0];
 var sudokuLine3 = [0,0,0,0,0,9,0,0,0];
-var sudokuLine4 = [0,0,0,1,1,9,9,0,0];
+var sudokuLine4 = [2,2,0,1,1,9,9,0,0];
 var sudokuLine5 = [1,2,3,4,5,6,7,8,9];
 var sudokuLine6 = [9,2,3,4,5,6,7,8,9];
 var sudokuLine7 = [9,2,3,4,5];
+var sudokuLine8 = [1.1,2.2,3.4,4,5,6.777777,7,8,9];
 
 function sudokuLineChecker(line) {
     var actualNumberList = [];
@@ -15,10 +16,8 @@ function sudokuLineChecker(line) {
         for (var i = 0; i < line.length; i++ ) {
             if (line[i] >= 0 && line[i] <= 9 && typeof line[i] === 'number' && line[i] === parseInt(line[i]) ) {
                 if (line[i] !== 0) {
-                    for (var j = 0; j < actualNumberList.length; j++) {
-                        if (actualNumberList[j] === line[i]) {
-                            result = false;
-                        }
+                    if ( actualNumberList.includes(line[i])) {
+                        result = false;
                     }
                     actualNumberList.push(line[i]);
                 }         
@@ -41,5 +40,6 @@ test('sudokuLineCheckerTest', function(t){
     t.equal(sudokuLineChecker(sudokuLine5), true, 'Absolute valid line');
     t.equal(sudokuLineChecker(sudokuLine6), false, 'Absolute invalid line');
     t.equal(sudokuLineChecker(sudokuLine7), false, 'Invalid length');
+    t.equal(sudokuLineChecker(sudokuLine8), false, 'No floating point number');
     t.end();
 })
