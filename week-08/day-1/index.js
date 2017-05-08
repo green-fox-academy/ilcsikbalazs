@@ -1,7 +1,7 @@
 'use strickt';
 var test = require('tape');
 var sudokuLine1 = [0,0,0,0,0,0,0,0,0];
-var sudokuLine2 = [0,0,0,0,0,'10',0,0,0];
+var sudokuLine2 = [0,0,0,0,0,'8',0,0,0];
 var sudokuLine3 = [0,0,0,0,0,9,0,0,0];
 var sudokuLine4 = [0,0,0,1,1,9,9,0,0];
 var sudokuLine5 = [1,2,3,4,5,6,7,8,9];
@@ -13,7 +13,7 @@ function sudokuLineChecker(line) {
     var result = true;
     if (line.length === 9) {
         for (var i = 0; i < line.length; i++ ) {
-            if (line[i] >= 0 && line[i] <= 9) {
+            if (line[i] >= 0 && line[i] <= 9 && typeof line[i] === 'number' && line[i] === parseInt(line[i]) ) {
                 if (line[i] !== 0) {
                     for (var j = 0; j < actualNumberList.length; j++) {
                         if (actualNumberList[j] === line[i]) {
