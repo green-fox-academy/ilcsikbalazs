@@ -41,9 +41,9 @@ makeItRain.addEventListener('click', function(){
     if (numberOfLollypops >= 30) {
         lollypops.textContent = lollypops.textContent.substring(0, lollypops.textContent.length-60);
         numberOfLollypops = lollypops.textContent.length/2;
-        var candiesNumber = parseInt(candies.textContent);
         speedContentInt = speedContentInt * 10;
         speed.textContent = speedContentInt;
+        var candiesNumber = parseInt(candies.textContent);
         candiesNumber += speedContentInt;
         candies.textContent = candiesNumber;
         setTimeout(function () {

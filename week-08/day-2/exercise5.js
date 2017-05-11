@@ -18,8 +18,8 @@ let car = {
     refill: function(amount) {
         if (amount > this.petrolCapacity) {
             if (this.petrolLevel < this.petrolCapacity) {
+                amount -= this.petrolCapacity - this.petrolLevel;
                 this.petrolLevel = this.petrolCapacity;
-                amount -= this.petrolCapacity;
             }
         } else {
             if (this.petrolLevel < this.petrolCapacity) {
@@ -34,8 +34,8 @@ let car = {
 let station = {
     petrolStorage: 3000,
     provide: function(car) {
-        var remain = car.refill;
-        this.petrolStorage -= remain(this.petrolStorage);
+        var remain = car.refill(this.petrolStorage);
+        this.petrolStorage = remain;
     }
 }
 

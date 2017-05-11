@@ -16,7 +16,7 @@ function sudokuLineChecker(line) {
         for (var i = 0; i < line.length; i++ ) {
             if (line[i] >= 0 && line[i] <= 9 && typeof line[i] === 'number' && line[i] === parseInt(line[i]) ) {
                 if (line[i] !== 0) {
-                    if ( actualNumberList.includes(line[i])) {
+                    if ( line[i].includes(line[i])) {
                         result = false;
                     }
                     actualNumberList.push(line[i]);

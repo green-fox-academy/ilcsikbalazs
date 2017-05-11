@@ -40,7 +40,6 @@ var farm = {
         this.listOfAnimals.forEach(function(el) {
         });
     }
-
 }
 
 // Every farm has list of Animals
