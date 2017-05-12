@@ -1,5 +1,6 @@
 let home = document.querySelector('#home');
 let submitPost = document.querySelector('#submit');
+let homePage = document.querySelector('.homePage');
 
 home.addEventListener('click', function(){
     var visible = document.querySelector('.visible');
@@ -20,6 +21,7 @@ submitPost.addEventListener('click', function(){
 })
 
 home.addEventListener('click', function(){
+    homePage.innerHTML = "";
     loadPage();
 })
 
@@ -44,7 +46,6 @@ function loadPage() {
                 let monthAgo = 1;
                 let userName = datas.posts[i].owner;
 
-                let homePage = document.querySelector('.homePage');
                 let onePost = document.createElement('div');
                 onePost.setAttribute('class', 'onePost');
                 let postNumber = document.createElement('div');
@@ -103,8 +104,28 @@ function loadPage() {
                 onePost.appendChild(vote);
                 onePost.appendChild(content);
                 homePage.appendChild(onePost);
-
+                
                 counter++;
+
+                upvote.addEventListener('click', function() {
+                    let upvoteRequest = new XMLHttpRequest();
+                    let url = 'https://time-radish.glitch.me/posts';
+                    upvoteRequest.open('PUT', url);
+                    upvoteRequest.setRequestHeader('Accept', 'application/json');
+                    alert('lol')
+                    let scoreIncrement = datas.posts[i].score + 1;
+                    upvoteRequest.send(JSON.stringify({
+                        "score": scoreIncrement
+                    }));
+                })
+
+                remove.addEventListener('click', function() {
+                    let currentID = datas.posts[i].id
+                    let url = 'https://time-radish.glitch.me/posts'+currentID;
+                    redditRequest.open('DELETE', url);
+                    redditRequest.setRequestHeader('Accept', 'application/json');
+                    redditRequest.send();
+                })
             }
         }
     }
@@ -114,15 +135,21 @@ loadPage();
 function createNewPostloadPage() {
     let redditRequest = new XMLHttpRequest();
     let url = 'https://time-radish.glitch.me/posts';
-    redditRequest.open('GET', url);
+    redditRequest.open('POST', url);
     redditRequest.setRequestHeader('Accept', 'application/json');
-    redditRequest.send();
+    redditRequest.setRequestHeader('Content-Type', 'application/json');
 
-    redditRequest.onreadystatechange = function() {
-        if(redditRequest.status === 200 && redditRequest.readyState === 4) {
-            console.log(JSON.parse(redditRequest.response));
-        }
-    }
+    let urlTextBox = document.querySelector('.submitPage .url input');
+    let titleTextBox = document.querySelector('.submitPage .titleOfPost input');
+    let checkBox = document.querySelector('.submitPage .options .checkbox input');
+    let submitButton = document.querySelector('.submitPage .submitButton button');
+
+    submitButton.addEventListener('click', function() {
+        redditRequest.send(JSON.stringify({
+            "title": titleTextBox.value,
+            "href": urlTextBox.value,
+        }))
+    })
 }
 
 submitPost.addEventListener('click', function() {
