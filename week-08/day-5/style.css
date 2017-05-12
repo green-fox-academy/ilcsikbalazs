@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    margin: 0 5px;
+}
+
+.unvisible {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    background: #F0F0F0;
+    border-bottom: 1px solid #E1ECF7;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+}
+
+nav ul ul li {
+    margin-right: 8px;
+}
+
+nav ul li {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+nav ul li:active {
+    color: orange;
+}
+
+nav ul #loggedIn {
+    font-weight: bold;
+}
+
+nav ul #loggedIn:active {
+    color: black;
+}
+
+/*create new post*/
+section {
+    margin-top: 15px;
+    width: 370px;
+}
+
+.submitPage .title {
+    border-bottom: #5A96CD 5px solid;
+    padding-bottom: 6px;
+}
+
+.submitPage p spam{
+    color: #4C7AAE;
+}
+
+.submitPage .yellowBox {
+    font-size: 10px;
+    border: solid 1px #FBC245;
+    background: #F6E69F;
+    margin-bottom: 2px;
+    margin-top: 8px;
+    padding: 3px;
+}
+
+.submitPage div {
+    background: #CEE3F8;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    padding: 6px;
+}
+
+.submitPage .url {
+    display: flex;
+    flex-direction: column;
+}
+
+.submitPage .titleOfPost {
+    display: flex;
+    flex-direction: column;
+}
+
+.submitPage .submitButton {
+    display: flex;
+    flex-direction: column;
+}
+
+.submitPage .submitButton {
+    font-size: 10px;
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+
+.submitPage .submitButton button {
+    margin-top: 10px;
+    width: 50px;
+}
+
+.submitPage div label spam {
+    color: red;
+}
+
+/*Main page*/
+.homePage {
+    width: 100%;
+}
+
+.onePost {
+    display: flex;
+    cursor: default;
+}
+
+.onePost div {
+    margin-right: 20px;
+    align-self: center;
+}
+
+.onePost .vote {
+    color: #C6C6C6;
+    text-align: center;
+    width: 100px;
+}
+
+.onePost .content {
+    font-size: 10px;
+}
+
+.onePost .content .title {
+    font-size: 20px;
+    color: blue;
+}
+
+.onePost .content .options {
+    display: flex;
+}
+
+.onePost .content .options p {
+    margin-right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.onePost .content .options p:active {
+    color: gray;
+}
+
+.onePost .vote .upvote {
+    cursor: pointer;
+}
+
+.onePost .vote .downvote {
+    cursor: pointer;
+}
