@@ -3,8 +3,24 @@
 // the string as keys, and numbers as values that shows how many occurrences there are.
 // Create a test for that.
 
-let CountLetters = function(string) {
-    
+let CountLetters = function(str) {
+    try {
+        if(typeof str === 'string') {
+            let dictionary = {};
+            let strArray = str.split('');
+            for(let i = 0; i < strArray.length; i++) {
+                let filtered = strArray.filter(function(el) {
+                    return el === strArray[i]
+                })
+                dictionary[strArray[i]] = filtered.length;
+            }
+            return dictionary;
+        } else {
+            throw new Error('Not a string');
+        }
+    } catch (error) {
+        return error.message;
+    }
 }
 
-CountLetters('lolll');
+module.exports = CountLetters;
