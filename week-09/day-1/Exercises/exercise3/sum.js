@@ -5,7 +5,7 @@ let sum = function(integers) {
     try {
         integers.forEach(function(element) {
             if(typeof element != 'number') {
-                throw new Error();
+                throw new Error('not number');
             }
         });
         let sumOfInts = 0;

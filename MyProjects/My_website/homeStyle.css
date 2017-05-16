@@ -36,6 +36,42 @@ nav ul li:hover {
     border-right: 5px solid #2eb9ce;
 }
 
+@media only screen and (max-device-width: 480px){
+    nav ul {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav li {
+            border: 0;
+            border-top: 5px solid #2eb9ce;
+        }
+
+        #idcontact {
+            border-right: 0;
+            border-bottom: 5px solid #2eb9ce;
+        }
+}
+
+@media only screen and (max-device-width: 768px){
+    nav ul {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav li {
+        border: 0;
+        border-top: 5px solid #2eb9ce;
+    }
+
+    #idcontact {
+        border-right: 0;
+        border-bottom: 5px solid #2eb9ce;
+    }
+}
+
 @media screen and (max-width: 600px){
     nav ul {
         display: inline-block;
@@ -83,8 +119,8 @@ footer {
     border: 4px solid #33bbc3;
 }
 .home div img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 }
 
 .home div p {
@@ -136,6 +172,27 @@ footer {
 }
 
 .comment button {
+    font-family: 'Gloria Hallelujah', cursive;
     align-self: flex-end;
     width: 200px;
+}
+
+.gallery .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+.gallery .main img {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    flex-grow: 1;
+    max-height: 150px;
+    max-width: 300px;
+}
+
+.gallery .search {
+    margin-bottom: 20px;
 }

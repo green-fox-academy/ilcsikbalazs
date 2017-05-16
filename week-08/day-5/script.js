@@ -21,11 +21,11 @@ submitPost.addEventListener('click', function(){
 })
 
 home.addEventListener('click', function(){
-    homePage.innerHTML = "";
     loadPage();
 })
 
 function loadPage() {
+    homePage.innerHTML = "";
     let redditRequest = new XMLHttpRequest();
     let url = 'https://time-radish.glitch.me/posts';
     redditRequest.open('GET', url);
@@ -107,25 +107,55 @@ function loadPage() {
                 
                 counter++;
 
-                upvote.addEventListener('click', function() {
-                    let upvoteRequest = new XMLHttpRequest();
-                    let url = 'https://time-radish.glitch.me/posts';
-                    upvoteRequest.open('PUT', url);
-                    upvoteRequest.setRequestHeader('Accept', 'application/json');
-                    alert('lol')
-                    let scoreIncrement = datas.posts[i].score + 1;
-                    upvoteRequest.send(JSON.stringify({
-                        "score": scoreIncrement
-                    }));
-                })
-
                 remove.addEventListener('click', function() {
                     let currentID = datas.posts[i].id
-                    let url = 'https://time-radish.glitch.me/posts'+currentID;
+                    let url = 'https://time-radish.glitch.me/posts/'+currentID;
                     redditRequest.open('DELETE', url);
                     redditRequest.setRequestHeader('Accept', 'application/json');
                     redditRequest.send();
+                    redditRequest.onreadystatechange = function() {
+                    if(redditRequest.status === 200 && redditRequest.readyState === 4) {
+                        loadPage();
+                    }}
                 })
+
+                // let modifyRequest = new XMLHttpRequest();
+                // let url = 'https://time-radish.glitch.me/posts';
+                // modifyRequest.open('POST', url);
+                // modifyRequest.setRequestHeader('Accept', 'application/json');
+                // modifyRequest.setRequestHeader('Content-Type', 'application/json');
+
+                // modify.addEventListener('click', function() {
+                //     let modifyUrl = document.createElement('');
+                //     let modifyTitle = document.createElement('');
+                //     modifyRequest.send(JSON.stringify({
+                //         "title": modifyTitle.value,
+                //         "href": modifyUrl.value,
+                //     }))
+                // })
+
+                upvote.addEventListener('click', function() {
+                    let currentID = datas.posts[i].id
+                    let upvoteRequest = new XMLHttpRequest();
+                    let url = 'https://time-radish.glitch.me/posts/'+currentID+'/upvote';
+                    upvoteRequest.open('PUT', url);
+                    upvoteRequest.setRequestHeader('Accept', 'application/json');
+                    let scoreIncrement = datas.posts[i].score + 1;
+                    upvoteRequest.send();
+                    voteNumbers.innerText = parseInt(voteNumbers.innerText) + 1;
+                })
+
+                downvote.addEventListener('click', function() {
+                    let currentID = datas.posts[i].id
+                    let downvoteRequest = new XMLHttpRequest();
+                    let url = 'https://time-radish.glitch.me/posts/'+currentID+'/downvote';
+                    downvoteRequest.open('PUT', url);
+                    downvoteRequest.setRequestHeader('Accept', 'application/json');
+                    let scoreIncrement = datas.posts[i].score - 1;
+                    downvoteRequest.send();
+                    voteNumbers.innerText = parseInt(voteNumbers.innerText) - 1;
+                })
+
             }
         }
     }
