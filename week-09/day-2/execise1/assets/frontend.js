@@ -1,5 +1,3 @@
-'use strict';
-
 window.baseUrl = "http://localhost:8080";
 $("#server_change").on("submit", function (e) {
     e.preventDefault();
