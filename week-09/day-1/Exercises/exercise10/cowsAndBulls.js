@@ -19,20 +19,13 @@ let CAB = {
     playing: true,
     guessCounter: 0,
     GuessMethod: function(guess) {
-        let strGuess = "";
-        let strNumbers = "";
         let getResult = [];
-        guess.forEach(function(element) {
-            strGuess += element;
-        });
-        this.numbers.forEach(function(element) {
-            strNumbers += element;
-        });
+        
         guess.forEach(function(element, index) {
             if(strNumbers[index] === strGuess[index]) {
                 getResult.push("cow");
             }
-            if(this.numbers.includes(element) && strNumbers[index] != strGuess[index]) {
+            if(this.numbers.includes(element) && this.numbers[index] != guess[index]) {
                 getResult.push("bull");
             }
         }.bind(this));
