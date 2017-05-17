@@ -10,7 +10,7 @@ home.addEventListener('click', function() {
         homePage.parentNode.setAttribute('class', 'visible');
     }
     loadPage();
-})
+});
 
 submitPost.addEventListener('click', function() {
     let visible = document.querySelector('.visible');
@@ -19,7 +19,8 @@ submitPost.addEventListener('click', function() {
     if (submitPage.parentNode.getAttribute('class') === 'unvisible'){
         submitPage.parentNode.setAttribute('class', 'visible');
     }
-})
+    createNewPostloadPage();
+});
 
 function loadPage() {
     homePage.innerHTML = "";
@@ -178,7 +179,7 @@ function loadPage() {
             }
         }
     }
-}
+};
 
 loadPage();
 
@@ -201,7 +202,3 @@ function createNewPostloadPage() {
         }))
     })
 }
-
-submitPost.addEventListener('click', function() {
-    createNewPostloadPage();
-})
