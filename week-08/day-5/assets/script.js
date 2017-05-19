@@ -13,6 +13,10 @@ home.addEventListener('click', function() {
 });
 
 submitPost.addEventListener('click', function() {
+    let submitButtonRedo = document.querySelector('.submitPage button');
+    let titleSubmitPost = document.querySelector('.submitPage .title');
+    titleSubmitPost.innerHTML = 'submit to <spam>the page</spam>';
+    submitButtonRedo.innerHTML = 'submit';
     let visible = document.querySelector('.visible');
     visible.setAttribute('class', 'unvisible');
     let submitPage = document.querySelector('.submitPage');
@@ -25,7 +29,7 @@ submitPost.addEventListener('click', function() {
 function loadPage() {
     homePage.innerHTML = "";
     let redditRequest = new XMLHttpRequest();
-    let url = 'https://time-radish.glitch.me/posts';
+    let url = 'http://127.0.0.1:3000/posts';
     redditRequest.open('GET', url);
     redditRequest.setRequestHeader('Accept', 'application/json');
     redditRequest.send();
@@ -107,7 +111,7 @@ function loadPage() {
 
                 remove.addEventListener('click', function() {
                     let currentID = datas.posts[i].id
-                    let url = 'https://time-radish.glitch.me/posts/'+currentID;
+                    let url = 'http://127.0.0.1:3000/posts'+currentID;
                     redditRequest.open('DELETE', url);
                     redditRequest.setRequestHeader('Accept', 'application/json');
                     redditRequest.send();
@@ -125,20 +129,21 @@ function loadPage() {
                         submitPage.parentNode.setAttribute('class', 'visible');
                     }
                     let submitPageTitle = document.querySelector('.submitPage .title');
-                    submitPageTitle.innerHTML = 'Modify Page';
-                    let redditRequest = new XMLHttpRequest();
-                    let url = 'https://time-radish.glitch.me/posts';
+                    let modifyButton = document.querySelector('.submitButton button')
+                    submitPageTitle.innerHTML = 'modify <spam>the page</spam>';
+                    modifyButton.innerHTML = 'modify';
+
+                    let currentID = datas.posts[i].id
+                    let url = 'localhost:3000/posts'+currentID;
                     redditRequest.open('PUT', url);
                     redditRequest.setRequestHeader('Accept', 'application/json');
                     redditRequest.setRequestHeader('Content-Type', 'application/json');
 
-                    let urlTextBox = document.querySelector('.submitPage .url input');
-                    let titleTextBox = document.querySelector('.submitPage .titleOfPost input');
-                    let checkBox = document.querySelector('.submitPage .options .checkbox input');
-                    let submitButton = document.querySelector('.submitPage .submitButton button');
-
-                    submitButton.addEventListener('click', function() {
-                        redditRequest.send();
+                    modifyButton.addEventListener('click', function() {
+                        redditRequest.send({
+                        "title": "Crockford",
+                        "href": "http://9gag.com"
+                        });
                     })
                 })
 
@@ -146,10 +151,9 @@ function loadPage() {
                     if(upvote.getAttribute('src') === 'images/upvote.png') {
                         let currentID = datas.posts[i].id;
                         let upvoteRequest = new XMLHttpRequest();
-                        let url = 'https://time-radish.glitch.me/posts/'+currentID+'/upvote';
+                        let url = 'httP://127.0.0.1:3000/posts'+currentID+'/upvote';
                         upvoteRequest.open('PUT', url);
                         upvoteRequest.setRequestHeader('Accept', 'application/json');
-                        datas.posts[i].score + 1;
                         upvoteRequest.send();
                         voteNumbers.innerText = parseInt(voteNumbers.innerText) + 1;
                         upvote.setAttribute('src', 'images/upvoted.png');
@@ -163,10 +167,9 @@ function loadPage() {
                     if(downvote.getAttribute('src') === 'images/downvote.png') {
                         let currentID = datas.posts[i].id
                         let downvoteRequest = new XMLHttpRequest();
-                        let url = 'https://time-radish.glitch.me/posts/'+currentID+'/downvote';
+                        let url = 'httP://127.0.0.1:3000/posts'+currentID+'/downvote';
                         downvoteRequest.open('PUT', url);
                         downvoteRequest.setRequestHeader('Accept', 'application/json');
-                        datas.posts[i].score - 1;
                         downvoteRequest.send();
                         voteNumbers.innerText = parseInt(voteNumbers.innerText) - 1;
                         downvote.setAttribute('src', 'images/downvoted.png');
@@ -185,7 +188,7 @@ loadPage();
 
 function createNewPostloadPage() {
     let redditRequest = new XMLHttpRequest();
-    let url = 'https://time-radish.glitch.me/posts';
+    let url = 'http://127.0.0.1:3000/posts';
     redditRequest.open('POST', url);
     redditRequest.setRequestHeader('Accept', 'application/json');
     redditRequest.setRequestHeader('Content-Type', 'application/json');
