@@ -14,30 +14,46 @@ TennisGame1.prototype.wonPoint = function(playerName) {
     }
 };
 
+
+function draw(mScore) {
+     switch (mScore) {
+            case 0:
+                return "Love-All";
+            case 1:
+                return "Fifteen-All";
+            case 2:
+                return "Thirty-All";
+            default:
+                return "Deuce";
+        }
+}
+
+function winnerIs(minusResult) {
+    switch(minusResult) {
+            case 1:
+                return "Advantage player1";
+            case -1:
+                return "Advantage player2";
+            case 2:
+                return "Win for player1";
+            case 3:
+                 return "Win for player1";
+            case 4:
+                 return "Win for player1";
+            default:
+                return "Win for player2";
+        }
+}
+
+
 TennisGame1.prototype.getScore = function() {
     var score = "";
     var tempScore = 0;
+    var minusResult = this.m_score1 - this.m_score2;
     if (this.m_score1 === this.m_score2) {
-        switch (this.m_score1) {
-            case 0:
-                score = "Love-All";
-                break;
-            case 1:
-                score = "Fifteen-All";
-                break;
-            case 2:
-                score = "Thirty-All";
-                break;
-            default:
-                score = "Deuce";
-                break;
-        }
+       score = draw(this.m_score1);
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-        var minusResult = this.m_score1 - this.m_score2;
-        if (minusResult === 1) score = "Advantage player1";
-        else if (minusResult === -1) score = "Advantage player2";
-        else if (minusResult >= 2) score = "Win for player1";
-        else score = "Win for player2";
+        score = winnerIs(minusResult);
     } else {
         for (var i = 1; i < 3; i++) {
             if (i === 1) tempScore = this.m_score1;
