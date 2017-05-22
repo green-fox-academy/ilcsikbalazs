@@ -45,37 +45,30 @@ function winnerIs(minusResult) {
         }
 }
 
+function position(score){
+    switch (score) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            case 3:
+                return "Forty";
+        }
+}
 
 TennisGame1.prototype.getScore = function() {
     var score = "";
-    var tempScore = 0;
     var minusResult = this.m_score1 - this.m_score2;
     if (this.m_score1 === this.m_score2) {
        score = draw(this.m_score1);
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
         score = winnerIs(minusResult);
     } else {
-        for (var i = 1; i < 3; i++) {
-            if (i === 1) tempScore = this.m_score1;
-            else {
-                score += "-";
-                tempScore = this.m_score2;
-            }
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
-        }
+        score += position(this.m_score1);
+        score += "-";
+        score += position(this.m_score2);
     }
     return score;
 };
