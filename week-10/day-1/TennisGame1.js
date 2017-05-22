@@ -14,35 +14,30 @@ TennisGame1.prototype.wonPoint = function(playerName) {
     }
 };
 
-
 function draw(mScore) {
+    var result;
      switch (mScore) {
             case 0:
-                return "Love-All";
+                result = "Love-All";
+                break;
             case 1:
-                return "Fifteen-All";
+                result = "Fifteen-All";
+                break;
             case 2:
-                return "Thirty-All";
+                result = "Thirty-All";
+                break;
             default:
-                return "Deuce";
+                result = "Deuce";
+                break;
         }
+    return result;
 }
 
-function winnerIs(minusResult) {
-    switch(minusResult) {
-            case 1:
-                return "Advantage player1";
-            case -1:
-                return "Advantage player2";
-            case 2:
-                return "Win for player1";
-            case 3:
-                 return "Win for player1";
-            case 4:
-                 return "Win for player1";
-            default:
-                return "Win for player2";
-        }
+function winnerIs(point1, point2, player1Name, player2Name) {
+    var result;
+    score = point1 > point2 ? player1Name : player2Name;
+    result = ((point1 - point2) * (point1 - point2) === 1) ? "Advantage " + score : "Win for " + score;
+    return result;
 }
 
 function position(score){
@@ -60,15 +55,13 @@ function position(score){
 
 TennisGame1.prototype.getScore = function() {
     var score = "";
-    var minusResult = this.m_score1 - this.m_score2;
+    
     if (this.m_score1 === this.m_score2) {
-       score = draw(this.m_score1);
+        score = draw(this.m_score1);
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-        score = winnerIs(minusResult);
+        score = winnerIs(this.m_score1, this.m_score2, this.player1Name, this.player2Name);
     } else {
-        score += position(this.m_score1);
-        score += "-";
-        score += position(this.m_score2);
+        score = position(this.m_score1) + '-' + position(this.m_score2);
     }
     return score;
 };
