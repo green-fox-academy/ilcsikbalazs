@@ -40,15 +40,20 @@ function winnerIs(point1, point2, player1Name, player2Name) {
 }
 
 function position(score){
+    var result;
     switch (score) {
             case 0:
-                return "Love";
+                result = "Love";
+                break;
             case 1:
-                return "Fifteen";
+                result = "Fifteen";
+                break;
             case 2:
-                return "Thirty";
+                result = "Thirty";
+                break;
             case 3:
-                return "Forty";
+                result = "Forty";
+                break;
         }
 }
 
