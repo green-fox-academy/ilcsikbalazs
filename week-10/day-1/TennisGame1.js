@@ -34,9 +34,8 @@ function draw(mScore) {
 }
 
 function winnerIs(point1, point2, player1Name, player2Name) {
-    var result;
-    score = point1 > point2 ? player1Name : player2Name;
-    result = ((point1 - point2) * (point1 - point2) === 1) ? "Advantage " + score : "Win for " + score;
+    var player = point1 > point2 ? player1Name : player2Name;
+    var result = ((point1 - point2) * (point1 - point2) === 1) ? "Advantage " + player : "Win for " + player;
     return result;
 }
 
