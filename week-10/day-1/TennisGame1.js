@@ -55,6 +55,7 @@ function position(score){
                 result = "Forty";
                 break;
         }
+    return result;
 }
 
 TennisGame1.prototype.getScore = function() {
