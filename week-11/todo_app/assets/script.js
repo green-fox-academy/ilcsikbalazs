@@ -1,6 +1,5 @@
 'use strict';
 
-//ajax object
 let Requests = { 
     get: function(callback) {
         let httprequest = new XMLHttpRequest();
@@ -13,12 +12,38 @@ let Requests = {
                 callback(data);
             }
         };
+    },
+    post: function(respond) {
+        let httprequest = new XMLHttpRequest();
+        httprequest.open('POST', 'http://127.0.0.1:8080/list');
+        httprequest.setRequestHeader('Accept', 'application/json');
+        httprequest.setRequestHeader('Content-Type', 'application/json');
+        httprequest.send(respond);
+        httprequest.onreadystatechange = function() {
+            if(httprequest.status === 200 && httprequest.readyState === 4) {
+                Requests.get(Loader.lists);
+            }
+        };
+    },
+    delete: function(url) {
+        let httprequest = new XMLHttpRequest();
+        httprequest.open('DELETE', url);
+        httprequest.setRequestHeader('Accept', 'application/json');
+        httprequest.setRequestHeader('Content-Type', 'application/json');
+        httprequest.send();
+        httprequest.onreadystatechange = function() {
+            if(httprequest.status === 200 && httprequest.readyState === 4) {
+                Requests.get(Loader.lists);
+            }
+        };
     }
 }
 
 let Drawer = {
+    textbox: document.querySelector('.controlls input'),
+    createBtn: document.querySelector('.controlls button'),
+    listsUl: document.querySelector('.lists ul'),
     listElements: function(element) {
-        this.listsUl = document.querySelector('.lists ul');
         let listElement = document.createElement('li');
         listElement.innerText = element.text;
         this.listsUl.appendChild(listElement);
@@ -36,18 +61,26 @@ let Drawer = {
         let deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'delete';
         this.listsUl.appendChild(deleteBtn);
-        callback(deleteBtn);
+        let idDelete = element.id;
+        callback(deleteBtn, idDelete);
+    },
+    createTask: function(callback) {
+        callback(this.createBtn);
     }
 }
 
 let Loader = {
+    controlls: function() {
+        Drawer.createTask(EventHandler.createBtnEventListener);
+    },
     lists: function(data) {
+        Drawer.listsUl.innerHTML = "";
         data.forEach(function(element) {
             Drawer.listElements(element);
             Drawer.addCheckbox(element, EventHandler.checkboxEventListener);
             Drawer.addDeleteButton(element, EventHandler.deleteButtonEventListener);
         });
-    },
+    }
 }
 
 
@@ -61,10 +94,21 @@ let EventHandler = {
             }
         });
     },
-    deleteButtonEventListener: function(deleteBtn) {
+    deleteButtonEventListener: function(deleteBtn, idDelete) {
         deleteBtn.addEventListener('click', function() {
-            console.log('deleted');
+            let url = 'http://127.0.0.1:8080/list/' + idDelete;
+            Requests.delete(url);
+        });
+    },
+    createBtnEventListener: function(createBtn) {
+        createBtn.addEventListener('click', function() {
+            let respond = JSON.stringify({
+                text: Drawer.textbox.value
+            });
+            Requests.post(respond);
         });
     }
 }
+
 Requests.get(Loader.lists);
+Loader.controlls()

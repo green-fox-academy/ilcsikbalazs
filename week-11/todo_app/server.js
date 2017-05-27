@@ -42,6 +42,30 @@ app.get('/list', function(req, res) {
         });
         res.send(respond);
     })
+});
+
+app.post('/list', function(req, res) {
+    let text = req.body.text;
+    conn.query('INSERT INTO todo_list (text) VALUES (?)', [text], function(err, rows) {
+        if(err) {
+            console.log('POST new list: ' + err.message);
+            return;
+        }
+        res.send();
+    })
+
+    res.send();
+});
+
+app.delete('/list/:id', function(req, res) {
+    let id = req.params.id;
+    conn.query('DELETE FROM todo_list WHERE id = ?', [id], function(err, rows) {
+        if(err) {
+            console.log('DELETE from list: '+err.message);
+            return; 
+        }
+        res.send();
+    });
 })
 
 app.listen(8080, function() {
