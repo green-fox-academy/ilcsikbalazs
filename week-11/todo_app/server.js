@@ -16,7 +16,7 @@ let conn = mysql.createConnection({
     user: 'root',
     password: '12345',
     database: 'todo'
-})
+});
 
 conn.connect(function(err){
   if(err){
@@ -43,8 +43,6 @@ app.get('/list', function(req, res) {
         res.send(respond);
     })
 })
-
-
 
 app.listen(8080, function() {
     console.log('Server started');
