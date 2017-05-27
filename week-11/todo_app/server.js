@@ -61,12 +61,25 @@ app.delete('/list/:id', function(req, res) {
     let id = req.params.id;
     conn.query('DELETE FROM todo_list WHERE id = ?', [id], function(err, rows) {
         if(err) {
-            console.log('DELETE from list: '+err.message);
+            console.log('DELETE from list: ' + err.message);
             return; 
         }
         res.send();
     });
-})
+});
+
+// UPDATE [table] SET [column] = '[updated-value]' WHERE [column] = [value];
+app.put('/list/:id', function(req, res) {
+    let completed = req.body.completed;
+    let id = req.params.id;
+    conn.query('UPDATE todo_list SET completed = ? WHERE id = ?', [completed, id], function(err, rows) {
+        if(err) {
+            console.log('UPDATE list: ' + err.message);
+            return; 
+        }
+        res.send();
+    });
+});
 
 app.listen(8080, function() {
     console.log('Server started');

@@ -36,6 +36,18 @@ let Requests = {
                 Requests.get(Loader.lists);
             }
         };
+    },
+    put: function(url, respond) {
+        let httprequest = new XMLHttpRequest();
+        httprequest.open('PUT', url);
+        httprequest.setRequestHeader('Accept', 'application/json');
+        httprequest.setRequestHeader('Content-Type', 'application/json');
+        httprequest.send(respond);
+        httprequest.onreadystatechange = function() {
+            if(httprequest.status === 200 && httprequest.readyState === 4) {
+                Requests.get(Loader.lists);
+            }
+        };
     }
 }
 
@@ -55,7 +67,8 @@ let Drawer = {
             checkbox.checked = true;
         }
         this.listsUl.appendChild(checkbox);
-        callback(checkbox);
+        let idCheck = element.id;
+        callback(checkbox, idCheck);
     },
     addDeleteButton: function(element, callback) {
         let deleteBtn = document.createElement('button');
@@ -85,12 +98,19 @@ let Loader = {
 
 
 let EventHandler = {
-    checkboxEventListener: function(checkbox) {
+    checkboxEventListener: function(checkbox, idCheck) {
         checkbox.addEventListener('click', function() {
+            let url = 'http://127.0.0.1:8080/list/' + idCheck
             if(checkbox.checked) {
-                console.log('checked');
+                let respond = JSON.stringify({
+                    "completed": 1
+                });
+                Requests.put(url, respond);
             } else {
-                console.log('unchecked');
+                let respond = JSON.stringify({
+                    "completed": 0
+                });
+                Requests.put(url, respond);
             }
         });
     },
