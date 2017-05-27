@@ -23,7 +23,7 @@ let Drawer = {
         listElement.innerText = element.text;
         this.listsUl.appendChild(listElement);
     },
-    addButtons: function(element, callback) {
+    addCheckbox: function(element, callback) {
         let checkbox = document.createElement('input');
         checkbox.setAttribute('type', 'checkbox');
         if(element.completed) {
@@ -31,6 +31,12 @@ let Drawer = {
         }
         this.listsUl.appendChild(checkbox);
         callback(checkbox);
+    },
+    addDeleteButton: function(element, callback) {
+        let deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'delete';
+        this.listsUl.appendChild(deleteBtn);
+        callback(deleteBtn);
     }
 }
 
@@ -38,7 +44,8 @@ let Loader = {
     lists: function(data) {
         data.forEach(function(element) {
             Drawer.listElements(element);
-            Drawer.addButtons(element, EventHandler.checkboxEventListener);
+            Drawer.addCheckbox(element, EventHandler.checkboxEventListener);
+            Drawer.addDeleteButton(element, EventHandler.deleteButtonEventListener);
         });
     },
 }
@@ -52,6 +59,11 @@ let EventHandler = {
             } else {
                 console.log('unchecked');
             }
+        });
+    },
+    deleteButtonEventListener: function(deleteBtn) {
+        deleteBtn.addEventListener('click', function() {
+            console.log('deleted');
         });
     }
 }
