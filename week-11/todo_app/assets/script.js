@@ -20,6 +20,9 @@ let Requests = {
         httprequest.setRequestHeader('Content-Type', 'application/json');
         httprequest.send(respond);
         httprequest.onreadystatechange = function() {
+            // if(httprequest.readyState < 4) {
+            //     console.log('disable buttons');
+            // }
             if(httprequest.status === 200 && httprequest.readyState === 4) {
                 Requests.get(Loader.lists);
             }
@@ -55,10 +58,11 @@ let Drawer = {
     textbox: document.querySelector('.controlls input'),
     createBtn: document.querySelector('.controlls button'),
     listsUl: document.querySelector('.lists ul'),
+
     listElements: function(element) {
-        let listElement = document.createElement('li');
-        listElement.innerText = element.text;
-        this.listsUl.appendChild(listElement);
+        this.listElement = document.createElement('li');
+        this.listElement.innerText = element.text;
+        this.listsUl.appendChild(this.listElement);
     },
     addCheckbox: function(element, callback) {
         let checkbox = document.createElement('input');
@@ -66,14 +70,14 @@ let Drawer = {
         if(element.completed) {
             checkbox.checked = true;
         }
-        this.listsUl.appendChild(checkbox);
+        this.listElement.appendChild(checkbox);
         let idCheck = element.id;
         callback(checkbox, idCheck);
     },
     addDeleteButton: function(element, callback) {
         let deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'delete';
-        this.listsUl.appendChild(deleteBtn);
+        this.listElement.appendChild(deleteBtn);
         let idDelete = element.id;
         callback(deleteBtn, idDelete);
     },
@@ -90,8 +94,8 @@ let Loader = {
         Drawer.listsUl.innerHTML = "";
         data.forEach(function(element) {
             Drawer.listElements(element);
-            Drawer.addCheckbox(element, EventHandler.checkboxEventListener);
             Drawer.addDeleteButton(element, EventHandler.deleteButtonEventListener);
+            Drawer.addCheckbox(element, EventHandler.checkboxEventListener);
         });
     }
 }

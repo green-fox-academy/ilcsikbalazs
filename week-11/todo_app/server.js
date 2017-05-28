@@ -68,7 +68,6 @@ app.delete('/list/:id', function(req, res) {
     });
 });
 
-// UPDATE [table] SET [column] = '[updated-value]' WHERE [column] = [value];
 app.put('/list/:id', function(req, res) {
     let completed = req.body.completed;
     let id = req.params.id;
