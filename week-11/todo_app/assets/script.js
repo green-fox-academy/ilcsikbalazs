@@ -61,7 +61,7 @@ let Drawer = {
 
     listElements: function(element) {
         this.listElement = document.createElement('li');
-        this.listElement.innerText = element.text;
+        this.listElement.innerHTML = '<div class="textcontent">' + element.text + "</div>";
         this.listsUl.appendChild(this.listElement);
     },
     addCheckbox: function(element, callback) {

@@ -1,0 +1,59 @@
+.main {
+    margin: 10px auto;
+    background: #F7F7F7;
+    width: 462px;
+    min-height: 446px;
+    text-align: center;
+}
+
+.heading {
+	font-family: Lato-Light, sans-serif;
+	font-size: 64px;
+	color: #cecece;
+}
+
+.lists {
+	font-family: Lato-Regular, sans-serif;
+	font-size: 26px;
+	line-height: 2.2;
+	color: #cecece;
+}
+
+.lists ul {
+    list-style-type: none;
+    text-align: left;
+    padding: 0 60px;
+}
+
+.lists ul li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lists ul li .textcontent {
+    min-width: 250px;
+}
+
+.lists ul li button {
+    align-self: center;
+}
+
+.lists ul li input {
+    align-self: center;
+}
+
+.controlls {
+	font-family: Lato-Regular, sans-serif;
+	font-size: 26px;
+	color: #ffffff;
+}
+
+.controlls input {
+    width: 65%;
+    height: 30px;
+    text-indent: 10px;
+}
+
+.controlls button {
+    height: 36px;
+}
