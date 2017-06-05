@@ -103,7 +103,7 @@ Deck.prototype.shuffle = function() {
 }
 
 Deck.prototype.topCard = function() {
-    console.log(this.deckArray[this.deckArray.length-1].color + ' ' + this.deckArray[this.deckArray.length-1].value);
+    this.deckArray[this.deckArray.length-1].printer();
     this.number--;
     if(this.deckArray[this.deckArray.length-1].color === 'Clubs') {
         this.clubs--
@@ -117,8 +117,6 @@ Deck.prototype.topCard = function() {
     this.deckArray.pop();
 }
 
-let card = new Card('Spades', 12);
-card.printer();
 let deck = new Deck(7);
 deck.init();
 deck.printDeck();
@@ -126,5 +124,3 @@ deck.fillDeck();
 deck.shuffle();
 deck.topCard();
 deck.printDeck();
-
-
