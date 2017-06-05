@@ -69,6 +69,8 @@ Deck.prototype.init = function() {
         this.hearts++;
         this.diamonds++;            
     }
+    this.printDeck();
+    this.fillDeck();
 }
 
 Deck.prototype.printDeck = function() {
@@ -119,8 +121,6 @@ Deck.prototype.topCard = function() {
 
 let deck = new Deck(7);
 deck.init();
-deck.printDeck();
-deck.fillDeck();
 deck.shuffle();
 deck.topCard();
 deck.printDeck();
