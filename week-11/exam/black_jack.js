@@ -1,32 +1,7 @@
-// # Create a Card class, that has a color and a value
-// # Create a constructor for setting those values
-// # Card should be represented as string in this format:
-// # 9 Hearts
-// # Jack Diamonds
-
-// # Create a Deck class, that has a list of cards in it
-// # Create a constructor that takes a whole number as parameter
-// # The constructor should fill the list with the number of different cards using at least 4 different colors 
-// (except if the number given is smaller than four, than all cards should have different colors)
-// # We should be able to shuffle the deck, which randomly orders the cards
-// # We should be able to draw the top card which returns the drawn card and also removes it from the deck
-// # Deck should be represented as string in this format:
-// # 12 cards -  3 Clubs, 3 Diamonds, 3 Hearts, 3 Spades
-// # print(deck)
-// # Should print out:
-// # 12 cards -  3 Clubs, 3 Diamonds, 3 Hearts, 3 Spades
-// # top_card = deck.draw()
-// # print(top_card)
-// # print(deck)
-// # Should print out:
-// # Queen Spades
-// # 11 cards - 3 Clubs, 3 Diamonds, 3 Hearts, 2 Spades
-
 let Card = function(color, value) {
     this.color = color;
     this.value = value;
     if(this.color === 'Clubs' || this.color === 'Diamonds' || this.color === 'Hearts' || this.color === 'Spades' ) {
-        this.color;
         if(this.value > 0 && this.value < 13) {
             if(this.value === 10) {
                 this.value = 'Jack';
@@ -119,8 +94,17 @@ Deck.prototype.topCard = function() {
     this.deckArray.pop();
 }
 
-let deck = new Deck(7);
+let deck = new Deck(12);
 deck.init();
 deck.shuffle();
+deck.topCard();
+deck.printDeck();
+
+deck.topCard();
+deck.printDeck();
+deck.topCard();
+deck.printDeck();
+deck.topCard();
+deck.printDeck();
 deck.topCard();
 deck.printDeck();

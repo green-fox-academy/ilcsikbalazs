@@ -14,7 +14,7 @@ let conn = mysql.createConnection({
 app.get('/', function(req, res) {
     // res.sendFile(__dirname + '/index.html');
     // app.use('/assets/', express.static('assets'));
-    res.send('KEK');
+    res.send('Libary server');
 });
 
 app.get('/booknames', function(req, res) {

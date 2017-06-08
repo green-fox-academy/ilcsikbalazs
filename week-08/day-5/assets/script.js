@@ -111,7 +111,7 @@ function loadPage() {
 
                 remove.addEventListener('click', function() {
                     let currentID = datas.posts[i].id
-                    let url = 'http://127.0.0.1:3000/posts'+currentID;
+                    let url = 'http://127.0.0.1:3000/posts/'+currentID;
                     redditRequest.open('DELETE', url);
                     redditRequest.setRequestHeader('Accept', 'application/json');
                     redditRequest.send();
@@ -133,17 +133,18 @@ function loadPage() {
                     submitPageTitle.innerHTML = 'modify <spam>the page</spam>';
                     modifyButton.innerHTML = 'modify';
 
+                    let modifyRequest = new XMLHttpRequest();
                     let currentID = datas.posts[i].id
-                    let url = 'localhost:3000/posts'+currentID;
-                    redditRequest.open('PUT', url);
-                    redditRequest.setRequestHeader('Accept', 'application/json');
-                    redditRequest.setRequestHeader('Content-Type', 'application/json');
+                    let url = 'http://127.0.0.1:3000/posts/'+currentID;
+                    modifyRequest.open('PUT', url);
+                    modifyRequest.setRequestHeader('Accept', 'application/json');
+                    modifyRequest.setRequestHeader('Content-Type', 'application/json');
 
                     modifyButton.addEventListener('click', function() {
-                        redditRequest.send({
-                        "title": "Crockford",
-                        "href": "http://9gag.com"
-                        });
+                        modifyRequest.send(JSON.stringify({
+                            "title": document.querySelector('.submitPage .titleOfPost input').value,
+                            "href": document.querySelector('.submitPage .url input').value
+                        }));
                     })
                 })
 
@@ -151,7 +152,7 @@ function loadPage() {
                     if(upvote.getAttribute('src') === 'images/upvote.png') {
                         let currentID = datas.posts[i].id;
                         let upvoteRequest = new XMLHttpRequest();
-                        let url = 'httP://127.0.0.1:3000/posts'+currentID+'/upvote';
+                        let url = 'httP://127.0.0.1:3000/posts/'+currentID+'/upvote';
                         upvoteRequest.open('PUT', url);
                         upvoteRequest.setRequestHeader('Accept', 'application/json');
                         upvoteRequest.send();
@@ -167,7 +168,7 @@ function loadPage() {
                     if(downvote.getAttribute('src') === 'images/downvote.png') {
                         let currentID = datas.posts[i].id
                         let downvoteRequest = new XMLHttpRequest();
-                        let url = 'httP://127.0.0.1:3000/posts'+currentID+'/downvote';
+                        let url = 'httP://127.0.0.1:3000/posts/'+currentID+'/downvote';
                         downvoteRequest.open('PUT', url);
                         downvoteRequest.setRequestHeader('Accept', 'application/json');
                         downvoteRequest.send();
@@ -183,8 +184,6 @@ function loadPage() {
         }
     }
 };
-
-loadPage();
 
 function createNewPostloadPage() {
     let redditRequest = new XMLHttpRequest();
@@ -204,4 +203,6 @@ function createNewPostloadPage() {
             "href": urlTextBox.value,
         }))
     })
-}
+};
+
+loadPage();

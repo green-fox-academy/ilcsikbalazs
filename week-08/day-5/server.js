@@ -55,7 +55,7 @@ app.post('/posts', function(req, res) {
     });
 });
 
-app.delete('/posts:id', function(req, res) {
+app.delete('/posts/:id', function(req, res) {
     let idValue = req.params.id;
     conn.query('DELETE FROM posts_table WHERE id = ?', [parseInt(idValue)], function(err, rows) {
         if(err) {
@@ -66,7 +66,7 @@ app.delete('/posts:id', function(req, res) {
     });
 });
 
-app.put('/posts:id/upvote', function(req, res) {
+app.put('/posts/:id/upvote', function(req, res) {
     let idValue = req.params.id;
     conn.query('SELECT score FROM posts_table WHERE id = ?', [idValue],  function(err, rows) {
         if(err) {
@@ -88,7 +88,7 @@ app.put('/posts:id/upvote', function(req, res) {
     })
 });
 
-app.put('/posts:id/downvote', function(req, res) {
+app.put('/posts/:id/downvote', function(req, res) {
     let idValue = req.params.id;
     conn.query('SELECT score FROM posts_table WHERE id = ?', [parseInt(idValue)],  function(err, rows) {
         if(err) {
@@ -101,6 +101,25 @@ app.put('/posts:id/downvote', function(req, res) {
         });
         scoreSet -= 1;
         conn.query('UPDATE posts_table SET score = ? WHERE id = ?', [scoreSet, parseInt(idValue)], function(err, rows) {
+            if(err) {
+                console.log(err.toString());
+                return;
+            }
+            res.send();
+        });
+    })
+});
+
+app.put('/posts/:id', function(req, res) {
+    let titleValue = req.body.title;
+    let hrefValue = req.body.href;
+    let idValue = req.params.id;
+    conn.query('SELECT title, href FROM posts_table WHERE id = ?', [parseInt(idValue)],  function(err, rows) {
+        if(err) {
+            console.log(err.toString());
+            return;
+        }
+        conn.query('UPDATE posts_table SET title = ?, href = ? WHERE id = ?', [titleValue, hrefValue, parseInt(idValue)], function(err, rows) {
             if(err) {
                 console.log(err.toString());
                 return;

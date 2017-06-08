@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/assets/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="newPlaylist">
+            <label>name your playlist</label>
+            <input type="textbox" placeholder="new playlist">
+            <img src="/assets/img/ok.png">
+        </div>
+        <div class="addSongToPlaylist">
+            <label>select a playlist</label>
+            <select>
+                <!--<option value="">blaba</option>-->
+            </select>
+            <img src="/assets/img/ok.png">
+        </div>
+        <div class="main">
+            <div class="content">
+                <div class="left">
+                    <div class="upperPart">
+                        <div class="logoAndTitle">
+                            <div class="logo">
+                                <img src="/assets/img/foxplayer.png">
+                            </div>
+                            <div class="title">
+                                <p><span>Playlists</span><img src="/assets/img/plus.png"></p>
+                            </div>
+                        </div>
+                        <div class="artwork">
+                            <img src="/assets/img/artwork_placeholder.png">
+                        </div>
+                    </div>
+                    <div class="playlists">
+                        <div class="staticPlaylists">
+                            <!--<p>All tracks</p>
+                            <p>Favourites</p>-->
+                        </div>
+                        <div class="dynamicPlaylists">
+                            <!--<p><span>Relaxing music</span><img src="/assets/img/xicon.png"></p>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="currentlyPlaying">
+                        <div class="textData">
+                            <p class="title">Select a music</p>
+                            <p class="band"></p>
+                        </div>
+                        <div class="images">
+                            <img src="/assets/img/plus.png" class="addToPlaylist">
+                            <img src="/assets/img/star.svg" class="addToFavourites">
+                        </div>
+                    </div>
+                    <div class="tracks">
+                        <!--dom-->
+                        <!--<div class="aRow">
+                            <span class="numberAndTitle">
+                                <span class="number">1</span>
+                                <span class="title">Fortune Days</span> 
+                            </span>
+                            <span class="time">3:30</span>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="controlPanel">
+                <img id="rewind" src="/assets/img/rewind.svg">
+                <img id="forward" src="/assets/img/forward.svg">
+                <audio controls src=""></audio>
+            </div>
+        </div>
+
+        <!--<script src="/assets/thelastscript.js"></script>-->
+        <script src="/assets/frontend.js"></script>
+        <!--<script src="/assets/script.js"></script>-->
+    </body>
+</html>
