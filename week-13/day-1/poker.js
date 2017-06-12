@@ -228,6 +228,9 @@ class Game {
         }
         return result;
     }
+    won() {
+        
+    }
 
 }
 
@@ -239,10 +242,10 @@ let card5 = new Card(13, 'Hearts');
 let hand1 = new Hand(card1, card2, card3, card4, card5);
 
 let card6 = new Card(9, 'Hearts');
-let card7 = new Card(12, 'Hearts');
-let card8 = new Card(11, 'Hearts');
-let card9 = new Card(10, 'Hearts');
-let card10 = new Card(13, 'Hearts');
+let card7 = new Card(9, 'Hearts');
+let card8 = new Card(11, 'Clubs');
+let card9 = new Card(10, 'Clubs');
+let card10 = new Card(13, 'Clubs');
 let hand2 = new Hand(card6, card7, card8, card9, card10);
 
 let game = new Game(hand1, hand2);
